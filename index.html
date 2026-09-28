@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Меню на неделю — блюда, выход и порции</title>
+<style>
+:root{--navy:#17324d;--teal:#1f7a75;--teal2:#ddefea;--blue:#e7f0f7;--paper:#fbfcfd;--ink:#18242f;--muted:#61717e;--line:#d9e1e8;--warn:#fff2cc;--white:#fff;--shadow:0 12px 34px rgba(23,50,77,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"JetBrains Mono","JetBrainsMono Nerd Font",monospace;font-size:14px;font-weight:300;line-height:1.5}a{color:#075eaa;text-decoration-thickness:1px;text-underline-offset:3px}button,input{font:inherit}.shell{width:min(1520px,calc(100% - 32px));margin:auto}.hero{background:linear-gradient(125deg,var(--navy),#214f68 62%,var(--teal));color:#fff;padding:42px 0 36px}.hero h1{font-size:clamp(28px,4vw,52px);line-height:1.08;margin:8px 0 14px;max-width:1000px}.hero p{max-width:960px;margin:0;color:#eaf4f7;font-size:15px}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:700}.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px}.summary .box{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:14px}.box b{display:block;font-size:20px}.box span{font-size:12px;color:#dbe9ee}.sticky{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}.toolbar{display:flex;gap:8px;align-items:center;padding:10px 0;overflow:auto}.toolbar button,.toolbar .nav-link{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;cursor:pointer;white-space:nowrap;text-decoration:none;color:var(--ink)}.toolbar button.active{background:var(--teal);color:#fff;border-color:var(--teal)}.toolbar input{margin-left:auto;min-width:260px;border:1px solid var(--line);border-radius:999px;padding:8px 13px;background:#fff}.intro{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin:28px 0}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}.panel h2{margin:0 0 10px}.panel ul{margin:8px 0 0;padding-left:20px}.warning{background:var(--warn)}.section-title{display:flex;justify-content:space-between;align-items:end;margin:34px 0 14px;scroll-margin-top:72px}.section-title h2{margin:0;font-size:26px}.section-title p{margin:0;color:var(--muted)}.menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.day-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}.day-card>header{background:var(--navy);color:#fff;padding:16px 18px;display:flex;justify-content:space-between;gap:16px}.day-card h2{margin:2px 0 0;font-size:22px}.day-totals{display:grid;gap:2px;text-align:right;font-size:11px;color:#eaf4f7}.meal{padding:15px 18px;border-bottom:1px solid var(--line)}.meal-head{display:flex;justify-content:space-between;gap:12px;align-items:start}.meal h3{margin:0;font-size:15px}.meal-macros{display:grid;text-align:right;font-size:10px;color:var(--muted)}.meal ul{list-style:none;padding:0;margin:10px 0 0}.meal li{padding:8px 0;border-top:1px dashed var(--line)}.meal li:first-child{border-top:0}.recipe-link{font-weight:600}.portion-pair{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}.portion{background:var(--teal2);border-radius:999px;padding:2px 8px;font-size:11px}.muted{background:#eef1f3;color:var(--muted)}.external{color:#7b5a00}.extras{padding:13px 18px;background:var(--blue);font-size:11px}.extras div{display:grid;gap:3px;margin-top:4px}.recipe-list{display:grid;gap:12px}.recipe-card{background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);scroll-margin-top:72px;overflow:hidden}.recipe-card[hidden]{display:none}.recipe-card summary{cursor:pointer;list-style:none;padding:16px 18px;display:flex;justify-content:space-between;gap:20px;align-items:center}.recipe-card summary::-webkit-details-marker{display:none}.recipe-card summary:after{content:"＋";font-size:22px;color:var(--teal)}.recipe-card[open] summary:after{content:"−"}.recipe-card h3{margin:5px 0 0;font-size:19px}.tags{display:flex;gap:5px;flex-wrap:wrap}.tags span{font-size:10px;background:var(--blue);color:var(--navy);border-radius:999px;padding:2px 7px}.recipe-summary{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;margin-left:auto}.recipe-summary span{background:var(--teal2);padding:4px 8px;border-radius:8px;font-size:11px}.recipe-body{border-top:1px solid var(--line);padding:18px}.yield-editor{display:flex;align-items:center;gap:16px;background:var(--warn);padding:11px 13px;border-radius:10px;margin-bottom:16px}.yield-editor label{font-weight:600}.yield-editor input{width:100px;margin-left:8px;border:1px solid #c9ae52;border-radius:6px;padding:5px 7px;background:#fff}.yield-editor span{font-size:11px;color:#6d5b21}.recipe-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}.recipe-body h4{margin:0 0 9px;font-size:14px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:10px}table{border-collapse:collapse;width:100%;font-size:11px}th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th:first-child,td:first-child{text-align:left;white-space:normal}thead th{background:var(--teal);color:#fff;position:sticky;top:0}tfoot th{background:var(--teal2);color:var(--navy)}tbody tr:last-child td{border-bottom:0}.steps{margin:0;padding-left:22px}.steps li{margin-bottom:8px}.note{background:var(--blue);padding:10px;border-radius:9px;color:var(--navy);font-size:11px}.portion-section{margin-top:18px}.portion-title{display:flex;justify-content:space-between;gap:16px;align-items:center}.per100{font-size:11px;color:var(--muted)}.shopping-note{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin-bottom:14px}.cost-badge{background:var(--navy);color:#fff;border-radius:12px;padding:14px 18px;min-width:220px}.cost-badge span{display:block;font-size:11px;color:#dbe9ee}.cost-badge b{font-size:24px}.shopping-note p{margin:0;color:var(--muted)}footer{padding:40px 0 60px;color:var(--muted);font-size:11px}.hidden-day{display:none}
+.profile-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:26px}.profile-card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 24px rgba(23,50,77,.05);overflow:hidden}.profile-card>header{padding:18px 20px 14px;border-bottom:1px solid var(--line)}.profile-card h2{margin:3px 0 5px;font-size:24px}.profile-card>header p{color:var(--muted);font-size:12px}.profile-metrics{padding:14px 20px 8px}.metric{border:1px solid var(--line);border-radius:10px;padding:11px;background:#fff}.metric.accent{background:var(--teal2)}.metric span,.metric small{display:block;color:var(--muted);font-size:10px}.metric b{font-size:15px}.energy-estimate>div{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin:4px 0}.energy-estimate i{font-style:normal;color:var(--muted);font-size:11px}.energy-estimate strong{font-size:11px;color:var(--teal)}.profile-section-label{padding:8px 20px 0;color:var(--muted);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.calorie-equation{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1.25fr;gap:7px;align-items:center;padding:8px 20px 14px}.calorie-equation div{border:1px solid var(--line);border-radius:9px;padding:9px}.calorie-equation span{display:block;color:var(--muted);font-size:9px}.calorie-equation b{font-size:13px}.calorie-equation i{font-style:normal;color:var(--muted)}.calorie-equation .equation-total{background:var(--blue)}.reserve-line{display:flex;justify-content:space-between;gap:14px;padding:12px 20px;background:#f6fafc;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:11px}.deficit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 20px 10px}.deficit-grid>div{border-left:3px solid #9dccca;padding:5px 10px}.deficit-grid span,.deficit-grid small{display:block;color:var(--muted);font-size:10px}.deficit-grid b{display:block;font-size:12px;margin:3px 0}.profile-conclusion{margin:0;padding:12px 20px 16px!important;background:var(--warn);color:var(--ink)!important;font-size:11px!important;max-width:none!important}
+@media(max-width:980px){.summary{grid-template-columns:repeat(2,1fr)}.profile-list,.intro,.menu-grid,.recipe-grid{grid-template-columns:1fr}.day-totals,.meal-macros{text-align:left}.day-card>header,.meal-head{display:block}.toolbar input{min-width:190px}.recipe-card summary{align-items:flex-start}.recipe-summary{display:grid}.yield-editor,.portion-title{align-items:flex-start;flex-direction:column}.shopping-note{grid-template-columns:1fr}}
+@media(max-width:560px){body{font-size:13px}.shell{width:min(100% - 18px,1520px)}.summary{grid-template-columns:1fr}.profile-metrics,.deficit-grid{grid-template-columns:1fr}.calorie-equation{grid-template-columns:1fr 1fr}.calorie-equation i{display:none}.reserve-line{display:grid}.toolbar input{display:none}.recipe-body{padding:12px}.recipe-card summary{padding:13px}.meal{padding:13px}.hero{padding:28px 0}.day-card>header{padding:14px}.recipe-summary{display:none}}
+/* Светлая тема: без тёмных фоновых блоков. */
+.hero{background:linear-gradient(125deg,#f8fcff,#edf8f5 62%,#e7f4f7);color:var(--ink);border-bottom:1px solid var(--line)}
+.hero p{color:var(--muted)}
+.summary .box{background:#fff;border:1px solid var(--line);box-shadow:0 8px 24px rgba(23,50,77,.05)}
+.box span{color:var(--muted)}
+.toolbar button.active{background:var(--teal2);color:var(--ink);border-color:#9dccca}
+.day-card>header{background:var(--blue);color:var(--ink);border-bottom:1px solid var(--line)}
+.day-totals{color:var(--muted)}
+thead th{background:var(--teal2);color:var(--ink)}
+.cost-badge{background:var(--blue);color:var(--ink);border:1px solid var(--line)}
+.cost-badge span{color:var(--muted)}
+@media print{.sticky,.yield-editor{display:none}.shell{width:100%}.hero{padding:18px;background:#fff;color:#000}.hero p,.box span{color:#333}.summary .box{border:1px solid #aaa}.day-card,.recipe-card,.panel{box-shadow:none;break-inside:avoid}.recipe-card{display:block}.recipe-card .recipe-body{display:block}.menu-grid{grid-template-columns:1fr 1fr}a{color:#000;text-decoration:none}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="shell"><span class="eyebrow">Меню для двух человек · версия с отдельными блюдами</span><h1>Каждое блюдо рассчитано отдельно — от ингредиентов до граммов порции</h1><p>Сначала считаются ингредиенты и КБЖУ всего рецепта, затем расчётный выход готового блюда и только после этого — женская и мужская порции в граммах.</p>
+<div class="profile-list"><article class="profile-card">
+    <header><div><span class="eyebrow">Исходные данные</span><h2>Женщина</h2></div><p>39 лет · 165 см · 57,5 кг · талия 74 см · 10 000+ шагов · зал 2×/нед.</p></header>
+    <div class="profile-metrics">
+      <div class="metric accent energy-estimate"><span>Расчёт расхода энергии</span><div><b>Основной обмен 1 250,0</b><i>ккал/сут</i><strong>→ с учётом активности</strong><b>поддержание 1 950,0–2 150,0</b><i>ккал/сут</i></div><small>13 650,0–15 050,0 ккал/нед.</small></div>
+    </div>
+    <div class="profile-section-label">Два сценария дефицита</div>
+    <div class="deficit-grid">
+      <div><span>Если есть только расписанное</span><b>Дефицит 4 393,0–5 793,0 ккал/нед.</b><small>Теоретически ≈ 0,6–0,8 кг/нед.</small></div>
+      <div><span>Если использовать весь запас</span><b>Дефицит 2 800,0–4 200,0 ккал/нед.</b><small>Теоретически ≈ 0,4–0,5 кг/нед.</small></div>
+    </div>
+    <div class="profile-section-label">Что уже расписано</div>
+    <div class="calorie-equation">
+      <div><span>Еда</span><b>7 944,8</b></div><i>+</i>
+      <div><span>Алкоголь</span><b>1 192,2</b></div><i>+</i>
+      <div><span>Конфеты</span><b>120,0</b></div><i>=</i>
+      <div class="equation-total"><span>Расписано</span><b>9 257,0 ккал</b></div>
+    </div>
+    <div class="reserve-line"><span>Гибкий запас <b>1 593,0 ккал</b></span><span>Полный недельный лимит <b>10 850,0 ккал</b></span></div>
+    <p class="profile-conclusion"><b>Рабочий ориентир:</b> Гибкий запас составляет около 15%; даже при его полном использовании расчётный темп остаётся примерно 0,4–0,5 кг/нед.</p>
+  </article><article class="profile-card">
+    <header><div><span class="eyebrow">Исходные данные</span><h2>Мужчина</h2></div><p>49 лет · 182 см · 86 кг · талия 98 см · 3 000–4 000 шагов · зал 1×/нед.</p></header>
+    <div class="profile-metrics">
+      <div class="metric accent energy-estimate"><span>Расчёт расхода энергии</span><div><b>Основной обмен 1 758,0</b><i>ккал/сут</i><strong>→ с учётом активности</strong><b>поддержание 2 200,0–2 400,0</b><i>ккал/сут</i></div><small>15 400,0–16 800,0 ккал/нед.</small></div>
+    </div>
+    <div class="profile-section-label">Два сценария дефицита</div>
+    <div class="deficit-grid">
+      <div><span>Если есть только расписанное</span><b>Дефицит 4 814,2–6 214,2 ккал/нед.</b><small>Теоретически ≈ 0,6–0,8 кг/нед.</small></div>
+      <div><span>Если использовать весь запас</span><b>Дефицит 2 800,0–4 200,0 ккал/нед.</b><small>Теоретически ≈ 0,4–0,5 кг/нед.</small></div>
+    </div>
+    <div class="profile-section-label">Что уже расписано</div>
+    <div class="calorie-equation">
+      <div><span>Еда</span><b>9 081,6</b></div><i>+</i>
+      <div><span>Алкоголь</span><b>1 192,2</b></div><i>+</i>
+      <div><span>Сахар + конфеты</span><b>312,0</b></div><i>=</i>
+      <div class="equation-total"><span>Расписано</span><b>10 585,8 ккал</b></div>
+    </div>
+    <div class="reserve-line"><span>Гибкий запас <b>2 014,2 ккал</b></span><span>Полный недельный лимит <b>12 600,0 ккал</b></span></div>
+    <p class="profile-conclusion"><b>Рабочий ориентир:</b> Гибкий запас составляет около 15%; даже при его полном использовании расчётный темп остаётся примерно 0,4–0,5 кг/нед.</p>
+  </article></div></div></header>
+<nav class="sticky"><div class="shell toolbar"><button class="active" data-day-filter="all">Все дни</button><button data-day-filter="Пн">Пн</button><button data-day-filter="Вт">Вт</button><button data-day-filter="Ср">Ср</button><button data-day-filter="Чт">Чт</button><button data-day-filter="Пт">Пт</button><button data-day-filter="Сб">Сб</button><button data-day-filter="Вс">Вс</button><a class="nav-link" href="#shopping">Покупки</a><input id="recipe-search" type="search" placeholder="Найти рецепт…"></div></nav>
+<main class="shell">
+  <div class="intro">
+    <section class="panel"><h2>Как пользоваться</h2><ul><li>В меню каждое название ведёт к отдельной карточке рецепта.</li><li>Для одинакового блюда мужская порция не меньше женской; прибавка мужчине сосредоточена в рабочих обедах.</li><li>Все крупы указаны сухим весом; консервированные фасоль и нут — после слива жидкости.</li><li>Масло уже включено в ингредиенты и КБЖУ.</li><li>После приготовления взвесьте всё готовое блюдо и замените расчётный выход фактическим — граммы всех порций обновятся автоматически.</li></ul></section>
+    <section class="panel warning"><h2>Что здесь является оценкой</h2><p>Поддержание веса рассчитано по формуле и диапазону активности. Реальный расход может отличаться; его уточняем по среднему утреннему весу за 3–4 недели. Перевод дефицита в килограммы тоже ориентировочный.</p><p>Выход готового блюда зависит от потери воды. КБЖУ всего рецепта точнее, чем расчёт на 100 г, пока фактический выход не взвешен.</p></section>
+  </div>
+  <div class="section-title"><div><span class="eyebrow">Неделя</span><h2>Меню</h2></div><p>Ж — женщина, М — мужчина</p></div>
+  <section class="menu-grid" id="menu-grid"><article class="day-card" data-day="Пн">
+      <header><div><span class="eyebrow">Пн</span><h2>Понедельник</h2></div><div class="day-totals"><span>Ж 1 020,7 ккал · Б 85,2 · Ж 36,2 · У 90,4</span><span>М 1 159,3 ккал · Б 96,8 · Ж 39,6 · У 106,2</span></div></header>
+      <section class="meal">
+        <div class="meal-head"><h3>Завтрак</h3><div class="meal-macros"><span>Ж 399,3 ккал · Б 22,2 · Ж 17,5 · У 37,5</span><span>М 399,3 ккал · Б 22,2 · Ж 17,5 · У 37,5</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-shakshuka-chickpea" data-open-recipe="shakshuka-chickpea">Шакшука с консервированным нутом</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="shakshuka-chickpea:w">485</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="shakshuka-chickpea:m">485</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Обед</h3><div class="meal-macros"><span>Ж 234,4 ккал · Б 23,5 · Ж 10,8 · У 12,2</span><span>М 285,2 ккал · Б 28,6 · Ж 13,1 · У 14,8</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-chicken-baked-veg" data-open-recipe="chicken-baked-veg">Курица с запечёнными овощами</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="chicken-baked-veg:w">300</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="chicken-baked-veg:m">365</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Ужин</h3><div class="meal-macros"><span>Ж 386,9 ккал · Б 39,6 · Ж 7,9 · У 40,8</span><span>М 442,8 ккал · Б 46,0 · Ж 9,0 · У 45,9</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-turkey-shchi" data-open-recipe="turkey-shchi">Щи с индейкой — на понедельник и вторник</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="turkey-shchi:mon-w">250</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="turkey-shchi:mon-m">250</span> г</span></div>
+        </li><li>
+          <a class="recipe-link" href="#recipe-pollock-carrot-cheese" data-open-recipe="pollock-carrot-cheese">Минтай с луком, морковью и сыром</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="pollock-carrot-cheese:w">210</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="pollock-carrot-cheese:m">256</span> г</span></div>
+        </li><li>
+          <a class="recipe-link" href="#recipe-brown-rice" data-open-recipe="brown-rice">Бурый рис отварной</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="brown-rice:w">60</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="brown-rice:m">70</span> г</span></div>
+        </li></ul>
+      </section>
+      <section class="extras"><b>Дополнительно</b><div><span>Ж: </span><span>М: Сахар в кофе 8 г</span></div></section>
+    </article><article class="day-card" data-day="Вт">
+      <header><div><span class="eyebrow">Вт</span><h2>Вторник</h2></div><div class="day-totals"><span>Ж 1 013,7 ккал · Б 76,2 · Ж 48,9 · У 71,9</span><span>М 1 166,5 ккал · Б 87,4 · Ж 53,5 · У 88,7</span></div></header>
+      <section class="meal">
+        <div class="meal-head"><h3>Завтрак</h3><div class="meal-macros"><span>Ж 355,7 ккал · Б 15,2 · Ж 24,8 · У 20,6</span><span>М 355,7 ккал · Б 15,2 · Ж 24,8 · У 20,6</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-sausages-ciabatta-veg" data-open-recipe="sausages-ciabatta-veg">Сардельки, чиабатта, огурцы и немного майонеза</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="sausages-ciabatta-veg:w">278</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="sausages-ciabatta-veg:m">278</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Обед</h3><div class="meal-macros"><span>Ж 233,0 ккал · Б 21,0 · Ж 8,7 · У 18,8</span><span>М 302,9 ккал · Б 27,3 · Ж 11,3 · У 24,4</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-warm-chicken-bean-salad-tue" data-open-recipe="warm-chicken-bean-salad-tue">Тёплый салат с курицей и фасолью</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="warm-chicken-bean-salad-tue:w">400</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="warm-chicken-bean-salad-tue:m">520</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Ужин</h3><div class="meal-macros"><span>Ж 425,1 ккал · Б 40,0 · Ж 15,4 · У 32,6</span><span>М 475,9 ккал · Б 44,9 · Ж 17,4 · У 35,7</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-turkey-shchi" data-open-recipe="turkey-shchi">Щи с индейкой — на понедельник и вторник</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="turkey-shchi:tue-w">250</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="turkey-shchi:tue-m">250</span> г</span></div>
+        </li><li>
+          <a class="recipe-link" href="#recipe-turkey-patties-batch" data-open-recipe="turkey-patties-batch">Котлеты из индейки — ужин и обед следующего дня</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="turkey-patties-batch:tue-w">105</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="turkey-patties-batch:tue-m">122</span> г</span></div>
+        </li><li>
+          <a class="recipe-link" href="#recipe-stewed-vegetables-batch" data-open-recipe="stewed-vegetables-batch">Тушёная капуста с морковью и грибами</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="stewed-vegetables-batch:tue-w">240</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="stewed-vegetables-batch:tue-m">280</span> г</span></div>
+        </li></ul>
+      </section>
+      <section class="extras"><b>Дополнительно</b><div><span>Ж: </span><span>М: Сахар в кофе 8 г</span></div></section>
+    </article><article class="day-card" data-day="Ср">
+      <header><div><span class="eyebrow">Ср</span><h2>Среда</h2></div><div class="day-totals"><span>Ж 1 088,3 ккал · Б 91,7 · Ж 39,5 · У 93,1</span><span>М 1 252,6 ккал · Б 104,3 · Ж 44,1 · У 111,7</span></div></header>
+      <section class="meal">
+        <div class="meal-head"><h3>Завтрак</h3><div class="meal-macros"><span>Ж 378,8 ккал · Б 28,6 · Ж 18,0 · У 25,9</span><span>М 378,8 ккал · Б 28,6 · Ж 18,0 · У 25,9</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-buckwheat-eggs-turkey" data-open-recipe="buckwheat-eggs-turkey">Киноа с яйцами и индейкой</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="buckwheat-eggs-turkey:w">421</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="buckwheat-eggs-turkey:m">421</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Обед</h3><div class="meal-macros"><span>Ж 289,7 ккал · Б 27,1 · Ж 11,7 · У 19,2</span><span>М 372,4 ккал · Б 34,5 · Ж 15,0 · У 25,1</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-turkey-patties-batch" data-open-recipe="turkey-patties-batch">Котлеты из индейки — ужин и обед следующего дня</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="turkey-patties-batch:wed-w">90</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="turkey-patties-batch:wed-m">113</span> г</span></div>
+        </li><li>
+          <a class="recipe-link" href="#recipe-stewed-vegetables-batch" data-open-recipe="stewed-vegetables-batch">Тушёная капуста с морковью и грибами</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="stewed-vegetables-batch:wed-w">250</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="stewed-vegetables-batch:wed-m">330</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Ужин</h3><div class="meal-macros"><span>Ж 359,8 ккал · Б 35,8 · Ж 8,7 · У 35,9</span><span>М 409,4 ккал · Б 41,0 · Ж 9,9 · У 40,5</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-fish-soup-batch" data-open-recipe="fish-soup-batch">Рыбный суп — на среду и четверг</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="fish-soup-batch:wed-w">250</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="fish-soup-batch:wed-m">250</span> г</span></div>
+        </li><li>
+          <a class="recipe-link" href="#recipe-seafood-soba-wok" data-open-recipe="seafood-soba-wok">Вок с кальмаром, креветками, овощами и SOBA</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="seafood-soba-wok:wed-w">360</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="seafood-soba-wok:wed-m">430</span> г</span></div>
+        </li></ul>
+      </section>
+      <section class="extras"><b>Дополнительно</b><div><span>Ж: Конфета 15 г</span><span>М: Сахар в кофе 8 г · Конфета 15 г</span></div></section>
+    </article><article class="day-card" data-day="Чт">
+      <header><div><span class="eyebrow">Чт</span><h2>Четверг</h2></div><div class="day-totals"><span>Ж 940,8 ккал · Б 85,5 · Ж 36,8 · У 71,0</span><span>М 1 097,5 ккал · Б 98,4 · Ж 40,6 · У 89,6</span></div></header>
+      <section class="meal">
+        <div class="meal-head"><h3>Завтрак</h3><div class="meal-macros"><span>Ж 333,0 ккал · Б 24,5 · Ж 18,5 · У 16,9</span><span>М 333,0 ккал · Б 24,5 · Ж 18,5 · У 16,9</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-omelet-mushroom-bean" data-open-recipe="omelet-mushroom-bean">Омлет с грибами, фасолью и томатами</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="omelet-mushroom-bean:w">450</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="omelet-mushroom-bean:m">450</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Обед</h3><div class="meal-macros"><span>Ж 248,0 ккал · Б 25,9 · Ж 6,0 · У 23,0</span><span>М 323,1 ккал · Б 33,8 · Ж 7,9 · У 30,0</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-seafood-soba-wok" data-open-recipe="seafood-soba-wok">Вок с кальмаром, креветками, овощами и SOBA</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="seafood-soba-wok:thu-w">350</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="seafood-soba-wok:thu-m">456</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Ужин</h3><div class="meal-macros"><span>Ж 359,8 ккал · Б 35,0 · Ж 12,3 · У 31,0</span><span>М 409,4 ккал · Б 40,0 · Ж 14,2 · У 34,7</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-fish-soup-batch" data-open-recipe="fish-soup-batch">Рыбный суп — на среду и четверг</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="fish-soup-batch:thu-w">250</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="fish-soup-batch:thu-m">250</span> г</span></div>
+        </li><li>
+          <a class="recipe-link" href="#recipe-stuffed-zucchini-batch" data-open-recipe="stuffed-zucchini-batch">Кабачки с индейкой и чечевицей</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="stuffed-zucchini-batch:thu-w">360</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="stuffed-zucchini-batch:thu-m">430</span> г</span></div>
+        </li></ul>
+      </section>
+      <section class="extras"><b>Дополнительно</b><div><span>Ж: </span><span>М: Сахар в кофе 8 г</span></div></section>
+    </article><article class="day-card" data-day="Пт">
+      <header><div><span class="eyebrow">Пт</span><h2>Пятница</h2></div><div class="day-totals"><span>Ж 2 046,8 ккал · Б 84,2 · Ж 93,4 · У 80,2</span><span>М 2 318,5 ккал · Б 99,5 · Ж 109,6 · У 97,5</span></div></header>
+      <section class="meal">
+        <div class="meal-head"><h3>Завтрак</h3><div class="meal-macros"><span>Ж 321,5 ккал · Б 21,2 · Ж 17,7 · У 18,0</span><span>М 321,5 ккал · Б 21,2 · Ж 17,7 · У 18,0</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-eggs-chickpea-veg" data-open-recipe="eggs-chickpea-veg">Яйца с консервированным нутом и овощами</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="eggs-chickpea-veg:w">458</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="eggs-chickpea-veg:m">458</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Обед</h3><div class="meal-macros"><span>Ж 269,3 ккал · Б 27,3 · Ж 10,3 · У 19,8</span><span>М 353,6 ккал · Б 35,8 · Ж 13,6 · У 26,0</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-stuffed-zucchini-batch" data-open-recipe="stuffed-zucchini-batch">Кабачки с индейкой и чечевицей</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="stuffed-zucchini-batch:fri-w">380</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="stuffed-zucchini-batch:fri-m">499</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Ужин · гриль</h3><div class="meal-macros"><span>Ж 859,9 ккал · Б 35,8 · Ж 65,3 · У 34,9</span><span>М 1 015,3 ккал · Б 42,5 · Ж 78,3 · У 37,9</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-grilled-pork-neck" data-open-recipe="grilled-pork-neck">Свиная шея на гриле</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="grilled-pork-neck:w">150</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="grilled-pork-neck:m">180</span> г</span></div>
+        </li><li>
+          <a class="recipe-link" href="#recipe-grilled-potatoes" data-open-recipe="grilled-potatoes">Картофель на гриле</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="grilled-potatoes:w">90</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="grilled-potatoes:m">90</span> г</span></div>
+        </li><li>
+          <a class="recipe-link" href="#recipe-grilled-veg-friday" data-open-recipe="grilled-veg-friday">Овощи и грибы на гриле</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="grilled-veg-friday:w">250</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="grilled-veg-friday:m">300</span> г</span></div>
+        </li></ul>
+      </section>
+      <section class="extras"><b>Дополнительно</b><div><span>Ж: Сухое вино 375 мл · Коньяк 125 мл</span><span>М: Сахар в кофе 8 г · Сухое вино 375 мл · Коньяк 125 мл</span></div></section>
+    </article><article class="day-card" data-day="Сб">
+      <header><div><span class="eyebrow">Сб</span><h2>Суббота</h2></div><div class="day-totals"><span>Ж 2 086,4 ккал · Б 84,5 · Ж 98,5 · У 75,2</span><span>М 2 354,3 ккал · Б 97,0 · Ж 118,1 · У 85,9</span></div></header>
+      <section class="meal">
+        <div class="meal-head"><h3>Завтрак</h3><div class="meal-macros"><span>Ж 358,5 ккал · Б 28,7 · Ж 16,7 · У 23,0</span><span>М 358,5 ккал · Б 28,7 · Ж 16,7 · У 23,0</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-savory-oats-chicken" data-open-recipe="savory-oats-chicken">Несладкая овсяная крупа с курицей, грибами и яйцом</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="savory-oats-chicken:w">309</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="savory-oats-chicken:m">309</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Обед</h3><div class="meal-macros"><span>Ж 227,9 ккал · Б 22,3 · Ж 8,1 · У 17,5</span><span>М 273,5 ккал · Б 26,8 · Ж 9,7 · У 21,0</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-warm-chicken-bean-salad-sat" data-open-recipe="warm-chicken-bean-salad-sat">Тёплый салат с курицей, фасолью и овощами</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="warm-chicken-bean-salad-sat:w">400</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="warm-chicken-bean-salad-sat:m">480</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Ужин · гриль</h3><div class="meal-macros"><span>Ж 843,9 ккал · Б 33,3 · Ж 72,6 · У 15,1</span><span>М 1 050,2 ккал · Б 41,3 · Ж 90,6 · У 18,3</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-grilled-ribs" data-open-recipe="grilled-ribs">Свиные рёбрышки на гриле</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="grilled-ribs:w">200</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="grilled-ribs:m">250</span> г</span></div>
+        </li><li>
+          <a class="recipe-link" href="#recipe-grilled-veg-saturday" data-open-recipe="grilled-veg-saturday">Овощи и грибы на гриле</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="grilled-veg-saturday:w">250</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="grilled-veg-saturday:m">300</span> г</span></div>
+        </li></ul>
+      </section>
+      <section class="extras"><b>Дополнительно</b><div><span>Ж: Конфета 15 г · Сухое вино 375 мл · Коньяк 125 мл</span><span>М: Сахар в кофе 4 г · Конфета 15 г · Сухое вино 375 мл · Коньяк 125 мл</span></div></section>
+    </article><article class="day-card" data-day="Вс">
+      <header><div><span class="eyebrow">Вс</span><h2>Воскресенье</h2></div><div class="day-totals"><span>Ж 1 060,3 ккал · Б 102,3 · Ж 43,3 · У 68,2</span><span>М 1 237,2 ккал · Б 116,2 · Ж 48,3 · У 87,6</span></div></header>
+      <section class="meal">
+        <div class="meal-head"><h3>Завтрак</h3><div class="meal-macros"><span>Ж 263,5 ккал · Б 25,9 · Ж 12,0 · У 14,8</span><span>М 325,3 ккал · Б 31,9 · Ж 14,7 · У 18,6</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-savory-syrniki" data-open-recipe="savory-syrniki">Несладкие сырники</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="savory-syrniki:w">160</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="savory-syrniki:m">196</span> г</span></div>
+        </li><li>
+          <a class="recipe-link" href="#recipe-fresh-veg-sunday" data-open-recipe="fresh-veg-sunday">Свежие овощи к сырникам</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="fresh-veg-sunday:w">150</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="fresh-veg-sunday:m">200</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Обед</h3><div class="meal-macros"><span>Ж 415,6 ккал · Б 34,2 · Ж 19,1 · У 27,6</span><span>М 415,6 ккал · Б 34,2 · Ж 19,1 · У 27,6</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-bean-egg-salad" data-open-recipe="bean-egg-salad">Салат с фасолью, яйцами и индейкой</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="bean-egg-salad:w">465</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="bean-egg-salad:m">465</span> г</span></div>
+        </li></ul>
+      </section><section class="meal">
+        <div class="meal-head"><h3>Ужин</h3><div class="meal-macros"><span>Ж 381,3 ккал · Б 42,1 · Ж 12,2 · У 25,9</span><span>М 480,3 ккал · Б 50,1 · Ж 14,5 · У 37,4</span></div></div>
+        <ul><li>
+          <a class="recipe-link" href="#recipe-baked-chicken-sunday" data-open-recipe="baked-chicken-sunday">Запечённая куриная грудка</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="baked-chicken-sunday:w">130</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="baked-chicken-sunday:m">150</span> г</span></div>
+        </li><li>
+          <a class="recipe-link" href="#recipe-vegetable-stew-sunday" data-open-recipe="vegetable-stew-sunday">Овощное рагу</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="vegetable-stew-sunday:w">200</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="vegetable-stew-sunday:m">250</span> г</span></div>
+        </li><li>
+          <a class="recipe-link" href="#recipe-boiled-bulgur" data-open-recipe="boiled-bulgur">Булгур отварной</a>
+          <div class="portion-pair"><span class="portion"><b>Ж</b> <span data-menu-portion="boiled-bulgur:w">50</span> г</span><span class="portion"><b>М</b> <span data-menu-portion="boiled-bulgur:m">80</span> г</span></div>
+        </li></ul>
+      </section>
+      <section class="extras"><b>Дополнительно</b><div><span>Ж: </span><span>М: Сахар в кофе 4 г</span></div></section>
+    </article></section>
+  <div class="section-title"><div><span class="eyebrow">Расчёт</span><h2>Отдельные рецепты</h2></div><p>28 карточек блюд</p></div>
+  <section class="recipe-list" id="recipe-list"><details class="recipe-card" id="recipe-shakshuka-chickpea" data-recipe-card="shakshuka-chickpea" open>
+    <summary><div><div class="tags"><span>Понедельник</span><span>Завтрак</span></div><h3>Шакшука с консервированным нутом</h3></div><div class="recipe-summary"><span>970 г выход</span><span>798,7 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="970" data-yield-input="shakshuka-chickpea"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/1851188" target="_blank" rel="noreferrer">Яйца куриные</a></td><td>207,2</td><td>310,8</td><td>24,9</td><td>22,8</td><td>1,0</td></tr><tr><td><a href="https://storage.by.prom.st/290601_prejskurant.pdf" target="_blank" rel="noreferrer">Нут консервированный Rolnik</a></td><td>141,3</td><td>161,7</td><td>10,6</td><td>2,7</td><td>19,4</td></tr><tr><td><a href="https://edostavka.by/product/1512730" target="_blank" rel="noreferrer">Помидоры очищенные</a></td><td>423,8</td><td>152,6</td><td>5,1</td><td>0,8</td><td>33,9</td></tr><tr><td><a href="https://edostavka.by/product/87673" target="_blank" rel="noreferrer">Перец сладкий</a></td><td>207,2</td><td>55,9</td><td>2,7</td><td>0,2</td><td>11,0</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>103,6</td><td>41,4</td><td>1,1</td><td>0,1</td><td>9,7</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>8,5</td><td>76,2</td><td>0,0</td><td>8,5</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>1,4</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>1,9</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>798,7</th><th>44,4</th><th>35,1</th><th>74,9</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Нут откинуть на сито, промыть и дать воде стечь.</li><li>Лук и перец припустить на всём отмеренном масле 4 минуты.</li><li>Добавить очищенные помидоры, нут, соль и специи; тушить 6–8 минут.</li><li>Сделать 4 углубления, добавить яйца и готовить под крышкой.</li></ol><p class="note">По 2 яйца каждому; овощно-нутовая основа делится вместе с готовым блюдом.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="shakshuka-chickpea">На 100 г: 82,3 ккал · Б 4,6 · Ж 3,6 · У 7,7</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="shakshuka-chickpea:w" data-ratio="0.5">
+    <td>Женщина</td><td data-portion-grams>485</td><td>399,3</td><td>22,2</td><td>17,5</td><td>37,5</td>
+  </tr><tr data-serving-row="shakshuka-chickpea:m" data-ratio="0.5">
+    <td>Мужчина</td><td data-portion-grams>485</td><td>399,3</td><td>22,2</td><td>17,5</td><td>37,5</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-chicken-baked-veg" data-recipe-card="chicken-baked-veg" open>
+    <summary><div><div class="tags"><span>Понедельник</span><span>Обед</span></div><h3>Курица с запечёнными овощами</h3></div><div class="recipe-summary"><span>665 г выход</span><span>519,6 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="665" data-yield-input="chicken-baked-veg"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/323497" target="_blank" rel="noreferrer">Куриная грудка</a></td><td>199,5</td><td>281,9</td><td>44,9</td><td>11,4</td><td>0,0</td></tr><tr><td><a href="https://edostavka.by/product/720948" target="_blank" rel="noreferrer">Кабачок</a></td><td>332,5</td><td>56,5</td><td>4,0</td><td>1,0</td><td>10,3</td></tr><tr><td><a href="https://edostavka.by/product/87673" target="_blank" rel="noreferrer">Перец сладкий</a></td><td>186,2</td><td>50,3</td><td>2,4</td><td>0,2</td><td>9,9</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>73,1</td><td>29,3</td><td>0,8</td><td>0,1</td><td>6,8</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>11,3</td><td>101,6</td><td>0,0</td><td>11,3</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>1,3</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>2</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>519,6</th><th>52,1</th><th>23,9</th><th>27,0</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Курицу и овощи нарезать крупно.</li><li>Смешать с точно отмеренным маслом, солью и специями.</li><li>Запекать 20–25 минут при 200 °C или приготовить в аэрогриле.</li></ol><p class="note">Приготовить одной партией и сразу отложить мужскую порцию в контейнер.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="chicken-baked-veg">На 100 г: 78,1 ккал · Б 7,8 · Ж 3,6 · У 4,1</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="chicken-baked-veg:w" data-ratio="0.45112781954887216">
+    <td>Женщина</td><td data-portion-grams>300</td><td>234,4</td><td>23,5</td><td>10,8</td><td>12,2</td>
+  </tr><tr data-serving-row="chicken-baked-veg:m" data-ratio="0.5488721804511278">
+    <td>Мужчина</td><td data-portion-grams>365</td><td>285,2</td><td>28,6</td><td>13,1</td><td>14,8</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-turkey-shchi" data-recipe-card="turkey-shchi" >
+    <summary><div><div class="tags"><span>Понедельник</span><span>Вторник</span><span>Ужин</span><span>Суп</span></div><h3>Щи с индейкой — на понедельник и вторник</h3></div><div class="recipe-summary"><span>1 000 г выход</span><span>459,8 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="1000" data-yield-input="turkey-shchi"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/1661176" target="_blank" rel="noreferrer">Филе индейки</a></td><td>127,3</td><td>140,0</td><td>29,3</td><td>2,5</td><td>0,0</td></tr><tr><td><a href="https://edostavka.by/product/656942" target="_blank" rel="noreferrer">Капуста белокочанная</a></td><td>281,8</td><td>78,9</td><td>5,1</td><td>0,3</td><td>13,2</td></tr><tr><td><a href="https://edostavka.by/product/1972950" target="_blank" rel="noreferrer">Морковь</a></td><td>72,7</td><td>29,8</td><td>0,7</td><td>0,2</td><td>7,0</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>63,6</td><td>25,5</td><td>0,7</td><td>0,1</td><td>5,9</td></tr><tr><td><a href="https://edostavka.by/product/1512730" target="_blank" rel="noreferrer">Помидоры очищенные</a></td><td>145,5</td><td>52,4</td><td>1,7</td><td>0,3</td><td>11,6</td></tr><tr><td><a href="https://edostavka.by/product/434350" target="_blank" rel="noreferrer">Картофель</a></td><td>81,8</td><td>67,9</td><td>1,6</td><td>0,3</td><td>16,1</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>7,3</td><td>65,4</td><td>0,0</td><td>7,3</td><td>0,0</td></tr><tr><td>Вода</td><td>454,5</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>1,8</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>1,8</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>459,8</th><th>39,1</th><th>10,9</th><th>53,9</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Индейку нарезать, овощи нашинковать.</li><li>Лук и морковь прогреть с маслом 3–4 минуты.</li><li>Добавить остальные ингредиенты и воду, варить 25 минут.</li><li>После приготовления взвесить суп; при необходимости долить кипяток до расчётного выхода, указанного в карточке.</li></ol><p class="note">Один самостоятельный рецепт на четыре порции; остальные блюда ужина считаются отдельно.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="turkey-shchi">На 100 г: 46,0 ккал · Б 3,9 · Ж 1,1 · У 5,4</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="turkey-shchi:mon-w" data-ratio="0.25">
+    <td>Понедельник · женщина</td><td data-portion-grams>250</td><td>115,0</td><td>9,8</td><td>2,7</td><td>13,5</td>
+  </tr><tr data-serving-row="turkey-shchi:mon-m" data-ratio="0.25">
+    <td>Понедельник · мужчина</td><td data-portion-grams>250</td><td>115,0</td><td>9,8</td><td>2,7</td><td>13,5</td>
+  </tr><tr data-serving-row="turkey-shchi:tue-w" data-ratio="0.25">
+    <td>Вторник · женщина</td><td data-portion-grams>250</td><td>115,0</td><td>9,8</td><td>2,7</td><td>13,5</td>
+  </tr><tr data-serving-row="turkey-shchi:tue-m" data-ratio="0.25">
+    <td>Вторник · мужчина</td><td data-portion-grams>250</td><td>115,0</td><td>9,8</td><td>2,7</td><td>13,5</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-pollock-carrot-cheese" data-recipe-card="pollock-carrot-cheese" >
+    <summary><div><div class="tags"><span>Понедельник</span><span>Ужин</span><span>Аэрогриль</span></div><h3>Минтай с луком, морковью и сыром</h3></div><div class="recipe-summary"><span>466 г выход</span><span>445,4 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="466" data-yield-input="pollock-carrot-cheese"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/1784574" target="_blank" rel="noreferrer">Филе минтая</a></td><td>261,6</td><td>235,5</td><td>52,3</td><td>2,6</td><td>0,0</td></tr><tr><td><a href="https://edostavka.by/product/1972950" target="_blank" rel="noreferrer">Морковь</a></td><td>179,9</td><td>73,7</td><td>1,7</td><td>0,4</td><td>17,2</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>89,9</td><td>36,0</td><td>1,0</td><td>0,1</td><td>8,4</td></tr><tr><td><a href="https://edostavka.by/product/761983" target="_blank" rel="noreferrer">Сыр лёгкий 35%</a></td><td>24,5</td><td>70,8</td><td>7,7</td><td>4,5</td><td>0,0</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>3,3</td><td>29,4</td><td>0,0</td><td>3,3</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,8</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>0,8</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>445,4</th><th>62,6</th><th>10,9</th><th>25,6</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Лук и морковь припустить на масле 4–5 минут.</li><li>Минтай уложить в форму, приправить и накрыть овощами.</li><li>Посыпать сыром и готовить в аэрогриле 12–15 минут при 180 °C.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="pollock-carrot-cheese">На 100 г: 95,6 ккал · Б 13,4 · Ж 2,3 · У 5,5</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="pollock-carrot-cheese:w" data-ratio="0.45064377682403434">
+    <td>Женщина</td><td data-portion-grams>210</td><td>200,7</td><td>28,2</td><td>4,9</td><td>11,6</td>
+  </tr><tr data-serving-row="pollock-carrot-cheese:m" data-ratio="0.5493562231759657">
+    <td>Мужчина</td><td data-portion-grams>256</td><td>244,7</td><td>34,4</td><td>6,0</td><td>14,1</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-brown-rice" data-recipe-card="brown-rice" >
+    <summary><div><div class="tags"><span>Понедельник</span><span>Ужин</span><span>Гарнир</span></div><h3>Бурый рис отварной</h3></div><div class="recipe-summary"><span>130 г выход</span><span>154,4 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="130" data-yield-input="brown-rice"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/222339" target="_blank" rel="noreferrer">Рис бурый сухой</a></td><td>48,1</td><td>154,4</td><td>3,4</td><td>0,5</td><td>34,2</td></tr><tr><td>Вода</td><td>144,3</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,3</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>154,4</th><th>3,4</th><th>0,5</th><th>34,2</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Рис промыть.</li><li>Варить в воде до готовности, лишнюю воду при необходимости слить.</li></ol><p class="note">Вес риса в таблице ингредиентов указан для сухой крупы.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="brown-rice">На 100 г: 118,8 ккал · Б 2,6 · Ж 0,4 · У 26,3</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="brown-rice:w" data-ratio="0.46153846153846156">
+    <td>Женщина</td><td data-portion-grams>60</td><td>71,3</td><td>1,6</td><td>0,2</td><td>15,8</td>
+  </tr><tr data-serving-row="brown-rice:m" data-ratio="0.5384615384615384">
+    <td>Мужчина</td><td data-portion-grams>70</td><td>83,1</td><td>1,8</td><td>0,3</td><td>18,4</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-sausages-ciabatta-veg" data-recipe-card="sausages-ciabatta-veg" >
+    <summary><div><div class="tags"><span>Вторник</span><span>Завтрак</span></div><h3>Сардельки, чиабатта, огурцы и немного майонеза</h3></div><div class="recipe-summary"><span>556 г выход</span><span>711,4 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="556" data-yield-input="sausages-ciabatta-veg"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/2024356" target="_blank" rel="noreferrer">Сардельки мини из индейки</a></td><td>200</td><td>500,0</td><td>24,0</td><td>44,0</td><td>4,0</td></tr><tr><td><a href="https://edostavka.by/product/2291966" target="_blank" rel="noreferrer">Чиабатта</a></td><td>60</td><td>119,4</td><td>4,5</td><td>0,3</td><td>25,9</td></tr><tr><td><a href="https://edostavka.by/product/720966" target="_blank" rel="noreferrer">Огурцы</a></td><td>300</td><td>45,0</td><td>2,0</td><td>0,3</td><td>10,9</td></tr><tr><td><a href="https://edostavka.by/product/539012" target="_blank" rel="noreferrer">Майонез 50%</a></td><td>10</td><td>47,0</td><td>0,1</td><td>5,0</td><td>0,5</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>711,4</th><th>30,5</th><th>49,6</th><th>41,2</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Сардельки прогреть без дополнительного масла.</li><li>Чиабатту подсушить.</li><li>Огурцы нарезать; майонез разделить пропорционально указанным порциям.</li></ol><p class="note">Каждому — по 2 небольшие сардельки, 2 тонких кусочка чиабатты, 150 г огурца и около 5 г майонеза.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="sausages-ciabatta-veg">На 100 г: 127,9 ккал · Б 5,5 · Ж 8,9 · У 7,4</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="sausages-ciabatta-veg:w" data-ratio="0.5">
+    <td>Женщина</td><td data-portion-grams>278</td><td>355,7</td><td>15,2</td><td>24,8</td><td>20,6</td>
+  </tr><tr data-serving-row="sausages-ciabatta-veg:m" data-ratio="0.5">
+    <td>Мужчина</td><td data-portion-grams>278</td><td>355,7</td><td>15,2</td><td>24,8</td><td>20,6</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-warm-chicken-bean-salad-tue" data-recipe-card="warm-chicken-bean-salad-tue" >
+    <summary><div><div class="tags"><span>Вторник</span><span>Обед</span></div><h3>Тёплый салат с курицей и фасолью</h3></div><div class="recipe-summary"><span>920 г выход</span><span>535,9 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="920" data-yield-input="warm-chicken-bean-salad-tue"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/323497" target="_blank" rel="noreferrer">Куриная грудка</a></td><td>149,8</td><td>211,6</td><td>33,7</td><td>8,5</td><td>0,0</td></tr><tr><td><a href="https://edostavka.by/product/542604" target="_blank" rel="noreferrer">Фасоль консервированная</a></td><td>166</td><td>124,5</td><td>8,3</td><td>0,8</td><td>21,6</td></tr><tr><td><a href="https://edostavka.by/product/71255" target="_blank" rel="noreferrer">Томаты</a></td><td>247,4</td><td>39,6</td><td>3,0</td><td>0,5</td><td>5,7</td></tr><tr><td><a href="https://edostavka.by/product/720966" target="_blank" rel="noreferrer">Огурцы</a></td><td>247,4</td><td>37,1</td><td>1,6</td><td>0,3</td><td>9,0</td></tr><tr><td><a href="https://edostavka.by/product/87673" target="_blank" rel="noreferrer">Перец сладкий</a></td><td>130,2</td><td>35,2</td><td>1,7</td><td>0,1</td><td>6,9</td></tr><tr><td><a href="https://edostavka.by/product/2174029" target="_blank" rel="noreferrer">Масло оливковое Extra Virgin</a></td><td>9,8</td><td>87,9</td><td>0,0</td><td>9,7</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,7</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>1,3</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>535,9</th><th>48,3</th><th>20,0</th><th>43,2</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Курицу запечь или быстро приготовить на сухой сковороде.</li><li>Фасоль промыть и хорошо обсушить.</li><li>Смешать курицу с овощами и фасолью; оливковое масло добавить уже в салат.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="warm-chicken-bean-salad-tue">На 100 г: 58,2 ккал · Б 5,2 · Ж 2,2 · У 4,7</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="warm-chicken-bean-salad-tue:w" data-ratio="0.43478260869565216">
+    <td>Женщина</td><td data-portion-grams>400</td><td>233,0</td><td>21,0</td><td>8,7</td><td>18,8</td>
+  </tr><tr data-serving-row="warm-chicken-bean-salad-tue:m" data-ratio="0.5652173913043478">
+    <td>Мужчина</td><td data-portion-grams>520</td><td>302,9</td><td>27,3</td><td>11,3</td><td>24,4</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-turkey-patties-batch" data-recipe-card="turkey-patties-batch" >
+    <summary><div><div class="tags"><span>Вторник</span><span>Среда</span><span>Основное</span></div><h3>Котлеты из индейки — ужин и обед следующего дня</h3></div><div class="recipe-summary"><span>430 г выход</span><span>739,5 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="430" data-yield-input="turkey-patties-batch"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/1130496" target="_blank" rel="noreferrer">Фарш из филе индейки</a></td><td>430</td><td>563,3</td><td>85,6</td><td>24,5</td><td>0,0</td></tr><tr><td><a href="https://edostavka.by/product/1851188" target="_blank" rel="noreferrer">Яйца куриные</a></td><td>63,9</td><td>95,9</td><td>7,7</td><td>7,0</td><td>0,3</td></tr><tr><td><a href="https://edostavka.by/product/986219" target="_blank" rel="noreferrer">Мука цельнозерновая</a></td><td>25,7</td><td>80,3</td><td>3,1</td><td>0,5</td><td>16,0</td></tr><tr><td>Соль добавленная</td><td>1,7</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>2,3</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>739,5</th><th>96,3</th><th>32,1</th><th>16,3</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Фарш смешать с яйцом, мукой, солью и специями.</li><li>Сформовать котлеты одной партией.</li><li>Запекать или готовить в аэрогриле до полной готовности; одну порцию сразу отложить на среду.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="turkey-patties-batch">На 100 г: 172,0 ккал · Б 22,4 · Ж 7,5 · У 3,8</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="turkey-patties-batch:tue-w" data-ratio="0.2441860465116279">
+    <td>Вторник · женщина</td><td data-portion-grams>105</td><td>180,6</td><td>23,5</td><td>7,8</td><td>4,0</td>
+  </tr><tr data-serving-row="turkey-patties-batch:tue-m" data-ratio="0.2837209302325581">
+    <td>Вторник · мужчина</td><td data-portion-grams>122</td><td>209,8</td><td>27,3</td><td>9,1</td><td>4,6</td>
+  </tr><tr data-serving-row="turkey-patties-batch:wed-w" data-ratio="0.20930232558139536">
+    <td>Среда · женщина</td><td data-portion-grams>90</td><td>154,8</td><td>20,2</td><td>6,7</td><td>3,4</td>
+  </tr><tr data-serving-row="turkey-patties-batch:wed-m" data-ratio="0.2627906976744186">
+    <td>Среда · мужчина</td><td data-portion-grams>113</td><td>194,3</td><td>25,3</td><td>8,4</td><td>4,3</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-stewed-vegetables-batch" data-recipe-card="stewed-vegetables-batch" >
+    <summary><div><div class="tags"><span>Вторник</span><span>Среда</span><span>Гарнир</span></div><h3>Тушёная капуста с морковью и грибами</h3></div><div class="recipe-summary"><span>1 100 г выход</span><span>593,7 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="1100" data-yield-input="stewed-vegetables-batch"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/656942" target="_blank" rel="noreferrer">Капуста белокочанная</a></td><td>648,6</td><td>181,6</td><td>11,7</td><td>0,6</td><td>30,5</td></tr><tr><td><a href="https://edostavka.by/product/1972950" target="_blank" rel="noreferrer">Морковь</a></td><td>253,6</td><td>104,0</td><td>2,4</td><td>0,6</td><td>24,3</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>152,1</td><td>60,9</td><td>1,7</td><td>0,2</td><td>14,2</td></tr><tr><td><a href="https://edostavka.by/product/72320" target="_blank" rel="noreferrer">Шампиньоны</a></td><td>345</td><td>93,2</td><td>14,8</td><td>3,5</td><td>0,3</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>17,1</td><td>154,1</td><td>0,0</td><td>17,1</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>1,9</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>2</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>593,7</th><th>30,5</th><th>22,0</th><th>69,3</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Лук и морковь прогреть на масле.</li><li>Добавить капусту и грибы, приправить.</li><li>Тушить под крышкой 15–20 минут; одну порцию сразу отложить на среду.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="stewed-vegetables-batch">На 100 г: 54,0 ккал · Б 2,8 · Ж 2,0 · У 6,3</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="stewed-vegetables-batch:tue-w" data-ratio="0.21818181818181817">
+    <td>Вторник · женщина</td><td data-portion-grams>240</td><td>129,5</td><td>6,7</td><td>4,8</td><td>15,1</td>
+  </tr><tr data-serving-row="stewed-vegetables-batch:tue-m" data-ratio="0.2545454545454545">
+    <td>Вторник · мужчина</td><td data-portion-grams>280</td><td>151,1</td><td>7,8</td><td>5,6</td><td>17,6</td>
+  </tr><tr data-serving-row="stewed-vegetables-batch:wed-w" data-ratio="0.22727272727272727">
+    <td>Среда · женщина</td><td data-portion-grams>250</td><td>134,9</td><td>6,9</td><td>5,0</td><td>15,8</td>
+  </tr><tr data-serving-row="stewed-vegetables-batch:wed-m" data-ratio="0.3">
+    <td>Среда · мужчина</td><td data-portion-grams>330</td><td>178,1</td><td>9,2</td><td>6,6</td><td>20,8</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-buckwheat-eggs-turkey" data-recipe-card="buckwheat-eggs-turkey" >
+    <summary><div><div class="tags"><span>Среда</span><span>Завтрак</span></div><h3>Киноа с яйцами и индейкой</h3></div><div class="recipe-summary"><span>842 г выход</span><span>757,6 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="842" data-yield-input="buckwheat-eggs-turkey"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://daily.nedostavka.net/ru/minsk/category/krupy-makarony-sakhar" target="_blank" rel="noreferrer">Киноа «Агро-Альянс»</a></td><td>59,4</td><td>225,8</td><td>8,3</td><td>4,2</td><td>38,6</td></tr><tr><td><a href="https://edostavka.by/product/1851188" target="_blank" rel="noreferrer">Яйца куриные</a></td><td>201,1</td><td>301,7</td><td>24,1</td><td>22,1</td><td>1,0</td></tr><tr><td><a href="https://edostavka.by/product/1661176" target="_blank" rel="noreferrer">Филе индейки</a></td><td>91,4</td><td>100,6</td><td>21,0</td><td>1,8</td><td>0,0</td></tr><tr><td><a href="https://edostavka.by/product/71255" target="_blank" rel="noreferrer">Томаты</a></td><td>205,7</td><td>32,9</td><td>2,5</td><td>0,4</td><td>4,7</td></tr><tr><td><a href="https://edostavka.by/product/720966" target="_blank" rel="noreferrer">Огурцы</a></td><td>205,7</td><td>30,9</td><td>1,3</td><td>0,2</td><td>7,5</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>7,3</td><td>65,8</td><td>0,0</td><td>7,3</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,6</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>0,9</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>757,6</th><th>57,3</th><th>36,1</th><th>51,8</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Киноа тщательно промыть в мелком сите, залить водой примерно 1:2 и варить 15–20 минут до впитывания воды.</li><li>Индейку приготовить на масле, добавить готовую киноа.</li><li>Яйца приготовить отдельно или вмешать в сковороду; овощи подать свежими.</li></ol><p class="note">По 2 яйца каждому; киноа в таблице указана общим сухим весом.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="buckwheat-eggs-turkey">На 100 г: 90,0 ккал · Б 6,8 · Ж 4,3 · У 6,2</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="buckwheat-eggs-turkey:w" data-ratio="0.5">
+    <td>Женщина</td><td data-portion-grams>421</td><td>378,8</td><td>28,6</td><td>18,0</td><td>25,9</td>
+  </tr><tr data-serving-row="buckwheat-eggs-turkey:m" data-ratio="0.5">
+    <td>Мужчина</td><td data-portion-grams>421</td><td>378,8</td><td>28,6</td><td>18,0</td><td>25,9</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-fish-soup-batch" data-recipe-card="fish-soup-batch" >
+    <summary><div><div class="tags"><span>Среда</span><span>Четверг</span><span>Ужин</span><span>Суп</span></div><h3>Рыбный суп — на среду и четверг</h3></div><div class="recipe-summary"><span>1 000 г выход</span><span>418,8 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="1000" data-yield-input="fish-soup-batch"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/1784574" target="_blank" rel="noreferrer">Филе минтая</a></td><td>154,5</td><td>139,1</td><td>30,9</td><td>1,5</td><td>0,0</td></tr><tr><td><a href="https://edostavka.by/product/434350" target="_blank" rel="noreferrer">Картофель</a></td><td>127,3</td><td>105,6</td><td>2,5</td><td>0,5</td><td>25,1</td></tr><tr><td><a href="https://edostavka.by/product/1972950" target="_blank" rel="noreferrer">Морковь</a></td><td>81,8</td><td>33,5</td><td>0,8</td><td>0,2</td><td>7,8</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>63,6</td><td>25,5</td><td>0,7</td><td>0,1</td><td>5,9</td></tr><tr><td><a href="https://edostavka.by/product/2174883" target="_blank" rel="noreferrer">Сельдерей</a></td><td>49,1</td><td>10,4</td><td>0,3</td><td>0,1</td><td>1,5</td></tr><tr><td><a href="https://edostavka.by/product/1512730" target="_blank" rel="noreferrer">Помидоры очищенные</a></td><td>109,1</td><td>39,3</td><td>1,3</td><td>0,2</td><td>8,7</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>7,3</td><td>65,4</td><td>0,0</td><td>7,3</td><td>0,0</td></tr><tr><td>Вода</td><td>590,9</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>1,8</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>1,8</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>418,8</th><th>36,6</th><th>9,9</th><th>49,1</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Овощи нарезать, минтай проверить на кости.</li><li>Лук и морковь прогреть с маслом.</li><li>Добавить воду, картофель, сельдерей и томаты; через 10 минут добавить рыбу.</li><li>Довести до готовности и скорректировать водой до расчётного выхода, указанного в карточке.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="fish-soup-batch">На 100 г: 41,9 ккал · Б 3,7 · Ж 1,0 · У 4,9</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="fish-soup-batch:wed-w" data-ratio="0.25">
+    <td>Среда · женщина</td><td data-portion-grams>250</td><td>104,7</td><td>9,1</td><td>2,5</td><td>12,3</td>
+  </tr><tr data-serving-row="fish-soup-batch:wed-m" data-ratio="0.25">
+    <td>Среда · мужчина</td><td data-portion-grams>250</td><td>104,7</td><td>9,1</td><td>2,5</td><td>12,3</td>
+  </tr><tr data-serving-row="fish-soup-batch:thu-w" data-ratio="0.25">
+    <td>Четверг · женщина</td><td data-portion-grams>250</td><td>104,7</td><td>9,1</td><td>2,5</td><td>12,3</td>
+  </tr><tr data-serving-row="fish-soup-batch:thu-m" data-ratio="0.25">
+    <td>Четверг · мужчина</td><td data-portion-grams>250</td><td>104,7</td><td>9,1</td><td>2,5</td><td>12,3</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-seafood-soba-wok" data-recipe-card="seafood-soba-wok" >
+    <summary><div><div class="tags"><span>Среда</span><span>Четверг</span><span>Основное</span></div><h3>Вок с кальмаром, креветками, овощами и SOBA</h3></div><div class="recipe-summary"><span>1 596 г выход</span><span>1 130,8 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="1596" data-yield-input="seafood-soba-wok"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/240110" target="_blank" rel="noreferrer">Кальмар</a></td><td>266,1</td><td>199,6</td><td>47,9</td><td>0,8</td><td>0,0</td></tr><tr><td><a href="https://edostavka.by/product/2211035" target="_blank" rel="noreferrer">Креветки очищенные</a></td><td>180,8</td><td>180,8</td><td>36,2</td><td>3,6</td><td>1,8</td></tr><tr><td><a href="https://edostavka.by/product/1637900" target="_blank" rel="noreferrer">Лапша SOBA сухая</a></td><td>79,5</td><td>284,0</td><td>9,3</td><td>0,9</td><td>57,8</td></tr><tr><td><a href="https://edostavka.by/product/87673" target="_blank" rel="noreferrer">Перец сладкий</a></td><td>393,4</td><td>106,2</td><td>5,1</td><td>0,4</td><td>20,8</td></tr><tr><td><a href="https://edostavka.by/product/720948" target="_blank" rel="noreferrer">Кабачок</a></td><td>393,4</td><td>66,9</td><td>4,7</td><td>1,2</td><td>12,2</td></tr><tr><td><a href="https://edostavka.by/product/72320" target="_blank" rel="noreferrer">Шампиньоны</a></td><td>318,9</td><td>86,1</td><td>13,7</td><td>3,2</td><td>0,3</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>128</td><td>51,2</td><td>1,4</td><td>0,1</td><td>12,0</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>17,4</td><td>156,0</td><td>0,0</td><td>17,3</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>1,1</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>2,2</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>1 130,8</th><th>118,3</th><th>27,5</th><th>104,9</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>SOBA сварить отдельно и откинуть на дуршлаг.</li><li>Овощи готовить на масле 5–7 минут.</li><li>Добавить кальмара и креветки ещё на 3–4 минуты.</li><li>Смешать с лапшой; порцию на четверг сразу убрать в контейнер.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="seafood-soba-wok">На 100 г: 70,9 ккал · Б 7,4 · Ж 1,7 · У 6,6</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="seafood-soba-wok:wed-w" data-ratio="0.22556390977443608">
+    <td>Среда · женщина</td><td data-portion-grams>360</td><td>255,1</td><td>26,7</td><td>6,2</td><td>23,7</td>
+  </tr><tr data-serving-row="seafood-soba-wok:wed-m" data-ratio="0.2694235588972431">
+    <td>Среда · мужчина</td><td data-portion-grams>430</td><td>304,7</td><td>31,9</td><td>7,4</td><td>28,3</td>
+  </tr><tr data-serving-row="seafood-soba-wok:thu-w" data-ratio="0.21929824561403508">
+    <td>Четверг · женщина</td><td data-portion-grams>350</td><td>248,0</td><td>25,9</td><td>6,0</td><td>23,0</td>
+  </tr><tr data-serving-row="seafood-soba-wok:thu-m" data-ratio="0.2857142857142857">
+    <td>Четверг · мужчина</td><td data-portion-grams>456</td><td>323,1</td><td>33,8</td><td>7,9</td><td>30,0</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-omelet-mushroom-bean" data-recipe-card="omelet-mushroom-bean" >
+    <summary><div><div class="tags"><span>Четверг</span><span>Завтрак</span></div><h3>Омлет с грибами, фасолью и томатами</h3></div><div class="recipe-summary"><span>900 г выход</span><span>666,0 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="900" data-yield-input="omelet-mushroom-bean"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/1851188" target="_blank" rel="noreferrer">Яйца куриные</a></td><td>213,1</td><td>319,7</td><td>25,6</td><td>23,4</td><td>1,1</td></tr><tr><td><a href="https://edostavka.by/product/72320" target="_blank" rel="noreferrer">Шампиньоны</a></td><td>232,5</td><td>62,8</td><td>10,0</td><td>2,3</td><td>0,2</td></tr><tr><td><a href="https://edostavka.by/product/542604" target="_blank" rel="noreferrer">Фасоль консервированная</a></td><td>193,8</td><td>145,3</td><td>9,7</td><td>1,0</td><td>25,2</td></tr><tr><td><a href="https://edostavka.by/product/71255" target="_blank" rel="noreferrer">Томаты</a></td><td>319,7</td><td>51,2</td><td>3,8</td><td>0,6</td><td>7,4</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>9,7</td><td>87,1</td><td>0,0</td><td>9,7</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,6</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>1</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>666,0</th><th>49,1</th><th>37,1</th><th>33,8</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Фасоль промыть и обсушить.</li><li>Грибы приготовить на масле 4–5 минут.</li><li>Добавить яйца и фасоль; томаты подать свежими.</li></ol><p class="note">По 2 яйца каждому.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="omelet-mushroom-bean">На 100 г: 74,0 ккал · Б 5,5 · Ж 4,1 · У 3,8</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="omelet-mushroom-bean:w" data-ratio="0.5">
+    <td>Женщина</td><td data-portion-grams>450</td><td>333,0</td><td>24,5</td><td>18,5</td><td>16,9</td>
+  </tr><tr data-serving-row="omelet-mushroom-bean:m" data-ratio="0.5">
+    <td>Мужчина</td><td data-portion-grams>450</td><td>333,0</td><td>24,5</td><td>18,5</td><td>16,9</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-stuffed-zucchini-batch" data-recipe-card="stuffed-zucchini-batch" >
+    <summary><div><div class="tags"><span>Четверг</span><span>Пятница</span><span>Основное</span></div><h3>Кабачки с индейкой и чечевицей</h3></div><div class="recipe-summary"><span>1 669 г выход</span><span>1 182,8 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="1669" data-yield-input="stuffed-zucchini-batch"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/1130496" target="_blank" rel="noreferrer">Фарш из филе индейки</a></td><td>437</td><td>572,5</td><td>87,0</td><td>24,9</td><td>0,0</td></tr><tr><td><a href="https://edostavka.by/product/704159" target="_blank" rel="noreferrer">Чечевица красная сухая</a></td><td>71</td><td>201,6</td><td>17,0</td><td>0,8</td><td>38,1</td></tr><tr><td><a href="https://edostavka.by/product/720948" target="_blank" rel="noreferrer">Кабачок</a></td><td>841,2</td><td>143,0</td><td>10,1</td><td>2,5</td><td>26,1</td></tr><tr><td><a href="https://edostavka.by/product/71255" target="_blank" rel="noreferrer">Томаты</a></td><td>328</td><td>52,5</td><td>3,9</td><td>0,7</td><td>7,5</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>163,6</td><td>65,4</td><td>1,8</td><td>0,2</td><td>15,3</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>16,4</td><td>147,8</td><td>0,0</td><td>16,4</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>1,6</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>2,2</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>1 182,8</th><th>119,8</th><th>45,5</th><th>87,0</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Чечевицу сварить до полуготовности.</li><li>Кабачки разрезать лодочками и вынуть часть мякоти.</li><li>Фарш смешать с чечевицей, томатами, луком и мякотью кабачка.</li><li>Наполнить лодочки и запекать 30–35 минут при 190 °C; порцию на пятницу отложить.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="stuffed-zucchini-batch">На 100 г: 70,9 ккал · Б 7,2 · Ж 2,7 · У 5,2</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="stuffed-zucchini-batch:thu-w" data-ratio="0.21569802276812464">
+    <td>Четверг · женщина</td><td data-portion-grams>360</td><td>255,1</td><td>25,8</td><td>9,8</td><td>18,8</td>
+  </tr><tr data-serving-row="stuffed-zucchini-batch:thu-m" data-ratio="0.2576393049730378">
+    <td>Четверг · мужчина</td><td data-portion-grams>430</td><td>304,7</td><td>30,9</td><td>11,7</td><td>22,4</td>
+  </tr><tr data-serving-row="stuffed-zucchini-batch:fri-w" data-ratio="0.22768124625524266">
+    <td>Пятница · женщина</td><td data-portion-grams>380</td><td>269,3</td><td>27,3</td><td>10,3</td><td>19,8</td>
+  </tr><tr data-serving-row="stuffed-zucchini-batch:fri-m" data-ratio="0.29898142600359495">
+    <td>Пятница · мужчина</td><td data-portion-grams>499</td><td>353,6</td><td>35,8</td><td>13,6</td><td>26,0</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-eggs-chickpea-veg" data-recipe-card="eggs-chickpea-veg" >
+    <summary><div><div class="tags"><span>Пятница</span><span>Завтрак</span></div><h3>Яйца с консервированным нутом и овощами</h3></div><div class="recipe-summary"><span>916 г выход</span><span>642,9 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="916" data-yield-input="eggs-chickpea-veg"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/1851188" target="_blank" rel="noreferrer">Яйца куриные</a></td><td>208</td><td>312,0</td><td>25,0</td><td>22,9</td><td>1,0</td></tr><tr><td><a href="https://storage.by.prom.st/290601_prejskurant.pdf" target="_blank" rel="noreferrer">Нут консервированный Rolnik</a></td><td>132,3</td><td>151,5</td><td>9,9</td><td>2,5</td><td>18,1</td></tr><tr><td><a href="https://edostavka.by/product/71255" target="_blank" rel="noreferrer">Томаты</a></td><td>312</td><td>49,9</td><td>3,7</td><td>0,6</td><td>7,2</td></tr><tr><td><a href="https://edostavka.by/product/720948" target="_blank" rel="noreferrer">Кабачок</a></td><td>312</td><td>53,0</td><td>3,7</td><td>0,9</td><td>9,7</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>8,5</td><td>76,5</td><td>0,0</td><td>8,5</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,6</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>0,9</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>642,9</th><th>42,4</th><th>35,4</th><th>36,0</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Нут откинуть на сито и промыть.</li><li>Кабачок приготовить на масле.</li><li>Добавить нут и яйца; томаты подать свежими или прогреть вместе с блюдом.</li></ol><p class="note">По 2 яйца каждому.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="eggs-chickpea-veg">На 100 г: 70,2 ккал · Б 4,6 · Ж 3,9 · У 3,9</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="eggs-chickpea-veg:w" data-ratio="0.5">
+    <td>Женщина</td><td data-portion-grams>458</td><td>321,5</td><td>21,2</td><td>17,7</td><td>18,0</td>
+  </tr><tr data-serving-row="eggs-chickpea-veg:m" data-ratio="0.5">
+    <td>Мужчина</td><td data-portion-grams>458</td><td>321,5</td><td>21,2</td><td>17,7</td><td>18,0</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-grilled-pork-neck" data-recipe-card="grilled-pork-neck" >
+    <summary><div><div class="tags"><span>Пятница</span><span>Ужин</span><span>Гриль</span></div><h3>Свиная шея на гриле</h3></div><div class="recipe-summary"><span>330 г выход</span><span>1 496,0 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="330" data-yield-input="grilled-pork-neck"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/2199807" target="_blank" rel="noreferrer">Свиная шея</a></td><td>440</td><td>1 496,0</td><td>61,6</td><td>136,4</td><td>5,5</td></tr><tr><td>Соль добавленная</td><td>1,1</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>2,2</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>1 496,0</th><th>61,6</th><th>136,4</th><th>5,5</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Мясо нарезать двумя кусками пропорционально порциям ниже, добавить специи.</li><li>Жарить на гриле до безопасной готовности, не обугливая поверхность.</li></ol><p class="note">Сырое мясо разделить пропорционально готовым порциям, указанным ниже.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="grilled-pork-neck">На 100 г: 453,3 ккал · Б 18,7 · Ж 41,3 · У 1,7</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="grilled-pork-neck:w" data-ratio="0.45454545454545453">
+    <td>Женщина</td><td data-portion-grams>150</td><td>680,0</td><td>28,0</td><td>62,0</td><td>2,5</td>
+  </tr><tr data-serving-row="grilled-pork-neck:m" data-ratio="0.5454545454545454">
+    <td>Мужчина</td><td data-portion-grams>180</td><td>816,0</td><td>33,6</td><td>74,4</td><td>3,0</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-grilled-potatoes" data-recipe-card="grilled-potatoes" >
+    <summary><div><div class="tags"><span>Пятница</span><span>Ужин</span><span>Гарнир</span></div><h3>Картофель на гриле</h3></div><div class="recipe-summary"><span>180 г выход</span><span>166,0 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="180" data-yield-input="grilled-potatoes"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/434350" target="_blank" rel="noreferrer">Картофель</a></td><td>200</td><td>166,0</td><td>4,0</td><td>0,8</td><td>39,4</td></tr><tr><td>Соль добавленная</td><td>0,4</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>0,7</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>166,0</th><th>4,0</th><th>0,8</th><th>39,4</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Картофель предварительно проварить 8–10 минут.</li><li>Довести до готовности на гриле; отдельное масло не добавлять.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="grilled-potatoes">На 100 г: 92,2 ккал · Б 2,2 · Ж 0,4 · У 21,9</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="grilled-potatoes:w" data-ratio="0.5">
+    <td>Женщина</td><td data-portion-grams>90</td><td>83,0</td><td>2,0</td><td>0,4</td><td>19,7</td>
+  </tr><tr data-serving-row="grilled-potatoes:m" data-ratio="0.5">
+    <td>Мужчина</td><td data-portion-grams>90</td><td>83,0</td><td>2,0</td><td>0,4</td><td>19,7</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-grilled-veg-friday" data-recipe-card="grilled-veg-friday" >
+    <summary><div><div class="tags"><span>Пятница</span><span>Ужин</span><span>Гарнир</span></div><h3>Овощи и грибы на гриле</h3></div><div class="recipe-summary"><span>550 г выход</span><span>213,2 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="550" data-yield-input="grilled-veg-friday"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/84697" target="_blank" rel="noreferrer">Баклажан</a></td><td>169,3</td><td>40,6</td><td>2,0</td><td>0,2</td><td>7,6</td></tr><tr><td><a href="https://edostavka.by/product/720948" target="_blank" rel="noreferrer">Кабачок</a></td><td>169,3</td><td>28,8</td><td>2,0</td><td>0,5</td><td>5,2</td></tr><tr><td><a href="https://edostavka.by/product/87673" target="_blank" rel="noreferrer">Перец сладкий</a></td><td>138</td><td>37,3</td><td>1,8</td><td>0,1</td><td>7,3</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>81,5</td><td>32,6</td><td>0,9</td><td>0,1</td><td>7,6</td></tr><tr><td><a href="https://edostavka.by/product/72320" target="_blank" rel="noreferrer">Шампиньоны</a></td><td>138</td><td>37,3</td><td>5,9</td><td>1,4</td><td>0,1</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>4,1</td><td>36,7</td><td>0,0</td><td>4,1</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,6</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>1,3</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>213,2</th><th>12,7</th><th>6,3</th><th>27,9</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Овощи нарезать крупно.</li><li>Смешать со всем указанным маслом и специями.</li><li>Готовить на решётке до мягкости и румяной поверхности.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="grilled-veg-friday">На 100 г: 38,8 ккал · Б 2,3 · Ж 1,2 · У 5,1</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="grilled-veg-friday:w" data-ratio="0.45454545454545453">
+    <td>Женщина</td><td data-portion-grams>250</td><td>96,9</td><td>5,8</td><td>2,9</td><td>12,7</td>
+  </tr><tr data-serving-row="grilled-veg-friday:m" data-ratio="0.5454545454545454">
+    <td>Мужчина</td><td data-portion-grams>300</td><td>116,3</td><td>6,9</td><td>3,5</td><td>15,2</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-savory-oats-chicken" data-recipe-card="savory-oats-chicken" >
+    <summary><div><div class="tags"><span>Суббота</span><span>Завтрак</span></div><h3>Несладкая овсяная крупа с курицей, грибами и яйцом</h3></div><div class="recipe-summary"><span>618 г выход</span><span>717,0 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="618" data-yield-input="savory-oats-chicken"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/868294" target="_blank" rel="noreferrer">Овсяная крупа недроблёная</a></td><td>65,2</td><td>228,0</td><td>8,5</td><td>3,9</td><td>39,1</td></tr><tr><td><a href="https://edostavka.by/product/323497" target="_blank" rel="noreferrer">Куриная грудка</a></td><td>111,7</td><td>157,8</td><td>25,1</td><td>6,4</td><td>0,0</td></tr><tr><td><a href="https://edostavka.by/product/1851188" target="_blank" rel="noreferrer">Яйца куриные</a></td><td>102,4</td><td>153,6</td><td>12,3</td><td>11,3</td><td>0,5</td></tr><tr><td><a href="https://edostavka.by/product/72320" target="_blank" rel="noreferrer">Шампиньоны</a></td><td>251,3</td><td>67,8</td><td>10,8</td><td>2,5</td><td>0,3</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>65,2</td><td>26,1</td><td>0,7</td><td>0,1</td><td>6,1</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>9,3</td><td>83,7</td><td>0,0</td><td>9,3</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,7</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>0,9</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>717,0</th><th>57,4</th><th>33,4</th><th>45,9</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Овсяную крупу сварить до мягкости.</li><li>Курицу, лук и грибы приготовить на масле.</li><li>Добавить крупу; яйца вмешать в блюдо или приготовить отдельно.</li></ol><p class="note">По 1 яйцу каждому; овсяная крупа указана сухим весом.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="savory-oats-chicken">На 100 г: 116,0 ккал · Б 9,3 · Ж 5,4 · У 7,4</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="savory-oats-chicken:w" data-ratio="0.5">
+    <td>Женщина</td><td data-portion-grams>309</td><td>358,5</td><td>28,7</td><td>16,7</td><td>23,0</td>
+  </tr><tr data-serving-row="savory-oats-chicken:m" data-ratio="0.5">
+    <td>Мужчина</td><td data-portion-grams>309</td><td>358,5</td><td>28,7</td><td>16,7</td><td>23,0</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-warm-chicken-bean-salad-sat" data-recipe-card="warm-chicken-bean-salad-sat" >
+    <summary><div><div class="tags"><span>Суббота</span><span>Обед</span></div><h3>Тёплый салат с курицей, фасолью и овощами</h3></div><div class="recipe-summary"><span>880 г выход</span><span>501,4 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="880" data-yield-input="warm-chicken-bean-salad-sat"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/323497" target="_blank" rel="noreferrer">Куриная грудка</a></td><td>162</td><td>229,0</td><td>36,5</td><td>9,2</td><td>0,0</td></tr><tr><td><a href="https://edostavka.by/product/542604" target="_blank" rel="noreferrer">Фасоль консервированная</a></td><td>126,8</td><td>95,1</td><td>6,3</td><td>0,6</td><td>16,5</td></tr><tr><td><a href="https://edostavka.by/product/71255" target="_blank" rel="noreferrer">Томаты</a></td><td>232,5</td><td>37,2</td><td>2,8</td><td>0,5</td><td>5,3</td></tr><tr><td><a href="https://edostavka.by/product/720966" target="_blank" rel="noreferrer">Огурцы</a></td><td>232,5</td><td>34,9</td><td>1,5</td><td>0,3</td><td>8,4</td></tr><tr><td><a href="https://edostavka.by/product/87673" target="_blank" rel="noreferrer">Перец сладкий</a></td><td>155</td><td>41,9</td><td>2,0</td><td>0,2</td><td>8,2</td></tr><tr><td><a href="https://edostavka.by/product/2174029" target="_blank" rel="noreferrer">Масло оливковое Extra Virgin</a></td><td>7</td><td>63,4</td><td>0,0</td><td>7,0</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,4</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>0,7</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>501,4</th><th>49,1</th><th>17,8</th><th>38,5</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Курицу запечь или приготовить на сухой сковороде.</li><li>Фасоль промыть, овощи нарезать.</li><li>Смешать и заправить оливковым маслом перед подачей.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="warm-chicken-bean-salad-sat">На 100 г: 57,0 ккал · Б 5,6 · Ж 2,0 · У 4,4</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="warm-chicken-bean-salad-sat:w" data-ratio="0.45454545454545453">
+    <td>Женщина</td><td data-portion-grams>400</td><td>227,9</td><td>22,3</td><td>8,1</td><td>17,5</td>
+  </tr><tr data-serving-row="warm-chicken-bean-salad-sat:m" data-ratio="0.5454545454545454">
+    <td>Мужчина</td><td data-portion-grams>480</td><td>273,5</td><td>26,8</td><td>9,7</td><td>21,0</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-grilled-ribs" data-recipe-card="grilled-ribs" >
+    <summary><div><div class="tags"><span>Суббота</span><span>Ужин</span><span>Гриль</span></div><h3>Свиные рёбрышки на гриле</h3></div><div class="recipe-summary"><span>450 г выход</span><span>1 687,5 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="450" data-yield-input="grilled-ribs"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/1721859" target="_blank" rel="noreferrer">Свиные рёбрышки</a></td><td>562,5</td><td>1 687,5</td><td>61,9</td><td>157,5</td><td>5,6</td></tr><tr><td>Соль добавленная</td><td>1,1</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>2,3</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>1 687,5</th><th>61,9</th><th>157,5</th><th>5,6</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Рёбра приправить без сладкой глазури.</li><li>Готовить на гриле до полной готовности, избегая сильного обугливания.</li></ol><p class="note">Выход указан с костями. Калорийность по каталогу рассчитана от сырого веса и остаётся консервативной оценкой.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="grilled-ribs">На 100 г: 375,0 ккал · Б 13,8 · Ж 35,0 · У 1,3</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="grilled-ribs:w" data-ratio="0.4444444444444444">
+    <td>Женщина</td><td data-portion-grams>200</td><td>750,0</td><td>27,5</td><td>70,0</td><td>2,5</td>
+  </tr><tr data-serving-row="grilled-ribs:m" data-ratio="0.5555555555555556">
+    <td>Мужчина</td><td data-portion-grams>250</td><td>937,5</td><td>34,4</td><td>87,5</td><td>3,1</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-grilled-veg-saturday" data-recipe-card="grilled-veg-saturday" >
+    <summary><div><div class="tags"><span>Суббота</span><span>Ужин</span><span>Гарнир</span></div><h3>Овощи и грибы на гриле</h3></div><div class="recipe-summary"><span>550 г выход</span><span>206,5 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="550" data-yield-input="grilled-veg-saturday"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/84697" target="_blank" rel="noreferrer">Баклажан</a></td><td>170,6</td><td>40,9</td><td>2,0</td><td>0,2</td><td>7,7</td></tr><tr><td><a href="https://edostavka.by/product/720948" target="_blank" rel="noreferrer">Кабачок</a></td><td>170,6</td><td>29,0</td><td>2,0</td><td>0,5</td><td>5,3</td></tr><tr><td><a href="https://edostavka.by/product/87673" target="_blank" rel="noreferrer">Перец сладкий</a></td><td>139,6</td><td>37,7</td><td>1,8</td><td>0,1</td><td>7,4</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>77,5</td><td>31,0</td><td>0,9</td><td>0,1</td><td>7,2</td></tr><tr><td><a href="https://edostavka.by/product/72320" target="_blank" rel="noreferrer">Шампиньоны</a></td><td>139,6</td><td>37,7</td><td>6,0</td><td>1,4</td><td>0,1</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>3,4</td><td>30,2</td><td>0,0</td><td>3,4</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,5</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>1</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>206,5</th><th>12,8</th><th>5,7</th><th>27,7</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Овощи и грибы крупно нарезать.</li><li>Распределить всё указанное масло и специи.</li><li>Готовить на решётке рядом с мясом.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="grilled-veg-saturday">На 100 г: 37,6 ккал · Б 2,3 · Ж 1,0 · У 5,0</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="grilled-veg-saturday:w" data-ratio="0.45454545454545453">
+    <td>Женщина</td><td data-portion-grams>250</td><td>93,9</td><td>5,8</td><td>2,6</td><td>12,6</td>
+  </tr><tr data-serving-row="grilled-veg-saturday:m" data-ratio="0.5454545454545454">
+    <td>Мужчина</td><td data-portion-grams>300</td><td>112,7</td><td>7,0</td><td>3,1</td><td>15,1</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-savory-syrniki" data-recipe-card="savory-syrniki" >
+    <summary><div><div class="tags"><span>Воскресенье</span><span>Завтрак</span></div><h3>Несладкие сырники</h3></div><div class="recipe-summary"><span>356 г выход</span><span>534,5 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="356" data-yield-input="savory-syrniki"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/575978" target="_blank" rel="noreferrer">Творог 5%</a></td><td>275,8</td><td>311,6</td><td>45,5</td><td>13,8</td><td>4,1</td></tr><tr><td><a href="https://edostavka.by/product/1851188" target="_blank" rel="noreferrer">Яйца куриные</a></td><td>46</td><td>68,9</td><td>5,5</td><td>5,1</td><td>0,2</td></tr><tr><td><a href="https://edostavka.by/product/986219" target="_blank" rel="noreferrer">Мука цельнозерновая</a></td><td>30,1</td><td>93,9</td><td>3,6</td><td>0,6</td><td>18,7</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>6,7</td><td>60,1</td><td>0,0</td><td>6,7</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,3</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>0,8</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>534,5</th><th>54,6</th><th>26,1</th><th>23,0</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Смешать творог, яйцо, муку, соль и зелень или несладкие специи.</li><li>Сформовать сырники одной партией.</li><li>Смазать отмеренным маслом и готовить в аэрогриле 12–15 минут.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="savory-syrniki">На 100 г: 150,2 ккал · Б 15,3 · Ж 7,3 · У 6,5</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="savory-syrniki:w" data-ratio="0.449438202247191">
+    <td>Женщина</td><td data-portion-grams>160</td><td>240,2</td><td>24,6</td><td>11,7</td><td>10,3</td>
+  </tr><tr data-serving-row="savory-syrniki:m" data-ratio="0.550561797752809">
+    <td>Мужчина</td><td data-portion-grams>196</td><td>294,3</td><td>30,1</td><td>14,4</td><td>12,7</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-fresh-veg-sunday" data-recipe-card="fresh-veg-sunday" >
+    <summary><div><div class="tags"><span>Воскресенье</span><span>Завтрак</span><span>Гарнир</span></div><h3>Свежие овощи к сырникам</h3></div><div class="recipe-summary"><span>350 г выход</span><span>54,3 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="350" data-yield-input="fresh-veg-sunday"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/71255" target="_blank" rel="noreferrer">Томаты</a></td><td>175</td><td>28,0</td><td>2,1</td><td>0,4</td><td>4,0</td></tr><tr><td><a href="https://edostavka.by/product/720966" target="_blank" rel="noreferrer">Огурцы</a></td><td>175</td><td>26,3</td><td>1,1</td><td>0,2</td><td>6,4</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>54,3</th><th>3,2</th><th>0,5</th><th>10,4</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Овощи вымыть и нарезать непосредственно перед подачей.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="fresh-veg-sunday">На 100 г: 15,5 ккал · Б 0,9 · Ж 0,2 · У 3,0</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="fresh-veg-sunday:w" data-ratio="0.42857142857142855">
+    <td>Женщина</td><td data-portion-grams>150</td><td>23,3</td><td>1,4</td><td>0,2</td><td>4,4</td>
+  </tr><tr data-serving-row="fresh-veg-sunday:m" data-ratio="0.5714285714285714">
+    <td>Мужчина</td><td data-portion-grams>200</td><td>31,0</td><td>1,8</td><td>0,3</td><td>5,9</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-bean-egg-salad" data-recipe-card="bean-egg-salad" >
+    <summary><div><div class="tags"><span>Воскресенье</span><span>Обед</span></div><h3>Салат с фасолью, яйцами и индейкой</h3></div><div class="recipe-summary"><span>930 г выход</span><span>831,1 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="930" data-yield-input="bean-egg-salad"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/542604" target="_blank" rel="noreferrer">Фасоль консервированная</a></td><td>300</td><td>225,0</td><td>15,0</td><td>1,5</td><td>39,0</td></tr><tr><td><a href="https://edostavka.by/product/1851188" target="_blank" rel="noreferrer">Яйца куриные</a></td><td>220</td><td>330,0</td><td>26,4</td><td>24,2</td><td>1,1</td></tr><tr><td><a href="https://edostavka.by/product/1661176" target="_blank" rel="noreferrer">Филе индейки</a></td><td>100</td><td>110,0</td><td>23,0</td><td>2,0</td><td>0,0</td></tr><tr><td><a href="https://edostavka.by/product/71255" target="_blank" rel="noreferrer">Томаты</a></td><td>150</td><td>24,0</td><td>1,8</td><td>0,3</td><td>3,4</td></tr><tr><td><a href="https://edostavka.by/product/720966" target="_blank" rel="noreferrer">Огурцы</a></td><td>150</td><td>22,5</td><td>1,0</td><td>0,2</td><td>5,4</td></tr><tr><td><a href="https://edostavka.by/product/87673" target="_blank" rel="noreferrer">Перец сладкий</a></td><td>80</td><td>21,6</td><td>1,0</td><td>0,1</td><td>4,2</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>20</td><td>8,0</td><td>0,2</td><td>0,0</td><td>1,9</td></tr><tr><td><a href="https://edostavka.by/product/2174029" target="_blank" rel="noreferrer">Масло оливковое Extra Virgin</a></td><td>10</td><td>90,0</td><td>0,0</td><td>10,0</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,4</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>1</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>831,1</th><th>68,4</th><th>38,2</th><th>55,1</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Индейку запечь и нарезать, фасоль промыть и обсушить, яйца сварить.</li><li>Овощи нарезать.</li><li>Смешать всё и заправить оливковым маслом.</li></ol><p class="note">По 2 яйца, 150 г фасоли и 50 г индейки каждому; белка больше, а овощной массы меньше.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="bean-egg-salad">На 100 г: 89,4 ккал · Б 7,4 · Ж 4,1 · У 5,9</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="bean-egg-salad:w" data-ratio="0.5">
+    <td>Женщина</td><td data-portion-grams>465</td><td>415,6</td><td>34,2</td><td>19,1</td><td>27,6</td>
+  </tr><tr data-serving-row="bean-egg-salad:m" data-ratio="0.5">
+    <td>Мужчина</td><td data-portion-grams>465</td><td>415,6</td><td>34,2</td><td>19,1</td><td>27,6</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-baked-chicken-sunday" data-recipe-card="baked-chicken-sunday" >
+    <summary><div><div class="tags"><span>Воскресенье</span><span>Ужин</span><span>Основное</span></div><h3>Запечённая куриная грудка</h3></div><div class="recipe-summary"><span>280 г выход</span><span>474,8 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="280" data-yield-input="baked-chicken-sunday"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/323497" target="_blank" rel="noreferrer">Куриная грудка</a></td><td>336</td><td>474,8</td><td>75,6</td><td>19,2</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,9</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>1,2</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>474,8</th><th>75,6</th><th>19,2</th><th>0,0</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Курицу приправить и запечь до полной готовности.</li><li>После короткого отдыха нарезать и взвесить готовое мясо.</li></ol><p class="note">Сырую курицу разделить пропорционально готовым порциям, указанным ниже.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="baked-chicken-sunday">На 100 г: 169,6 ккал · Б 27,0 · Ж 6,8 · У 0,0</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="baked-chicken-sunday:w" data-ratio="0.4642857142857143">
+    <td>Женщина</td><td data-portion-grams>130</td><td>220,4</td><td>35,1</td><td>8,9</td><td>0,0</td>
+  </tr><tr data-serving-row="baked-chicken-sunday:m" data-ratio="0.5357142857142857">
+    <td>Мужчина</td><td data-portion-grams>150</td><td>254,3</td><td>40,5</td><td>10,3</td><td>0,0</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-vegetable-stew-sunday" data-recipe-card="vegetable-stew-sunday" >
+    <summary><div><div class="tags"><span>Воскресенье</span><span>Ужин</span><span>Гарнир</span></div><h3>Овощное рагу</h3></div><div class="recipe-summary"><span>450 г выход</span><span>201,6 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="450" data-yield-input="vegetable-stew-sunday"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/656942" target="_blank" rel="noreferrer">Капуста белокочанная</a></td><td>209,5</td><td>58,7</td><td>3,8</td><td>0,2</td><td>9,8</td></tr><tr><td><a href="https://edostavka.by/product/720948" target="_blank" rel="noreferrer">Кабачок</a></td><td>138,3</td><td>23,5</td><td>1,7</td><td>0,4</td><td>4,3</td></tr><tr><td><a href="https://edostavka.by/product/1972950" target="_blank" rel="noreferrer">Морковь</a></td><td>75,5</td><td>30,9</td><td>0,7</td><td>0,2</td><td>7,2</td></tr><tr><td><a href="https://edostavka.by/product/72320" target="_blank" rel="noreferrer">Шампиньоны</a></td><td>92,2</td><td>24,9</td><td>4,0</td><td>0,9</td><td>0,1</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>46,1</td><td>18,5</td><td>0,5</td><td>0,0</td><td>4,3</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>5</td><td>45,2</td><td>0,0</td><td>5,0</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,5</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Специи и сушёные травы</td><td>0,8</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>201,6</th><th>10,6</th><th>6,8</th><th>25,8</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Лук и морковь прогреть на масле.</li><li>Добавить остальные овощи и грибы.</li><li>Тушить под крышкой 20–25 минут.</li></ol></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="vegetable-stew-sunday">На 100 г: 44,8 ккал · Б 2,4 · Ж 1,5 · У 5,7</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="vegetable-stew-sunday:w" data-ratio="0.4444444444444444">
+    <td>Женщина</td><td data-portion-grams>200</td><td>89,6</td><td>4,7</td><td>3,0</td><td>11,4</td>
+  </tr><tr data-serving-row="vegetable-stew-sunday:m" data-ratio="0.5555555555555556">
+    <td>Мужчина</td><td data-portion-grams>250</td><td>112,0</td><td>5,9</td><td>3,8</td><td>14,3</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details><details class="recipe-card" id="recipe-boiled-bulgur" data-recipe-card="boiled-bulgur" >
+    <summary><div><div class="tags"><span>Воскресенье</span><span>Ужин</span><span>Гарнир</span></div><h3>Булгур отварной</h3></div><div class="recipe-summary"><span>130 г выход</span><span>185,2 ккал всего</span></div></summary>
+    <div class="recipe-body">
+      <div class="yield-editor">
+        <label>Фактический выход блюда, г <input type="number" min="1" step="1" value="130" data-yield-input="boiled-bulgur"></label>
+        <span>Расчётный выход уже подставлен. После готовки можно заменить его фактическим весом.</span>
+      </div>
+      <div class="recipe-grid">
+        <section><h4>Ингредиенты и КБЖУ</h4><div class="table-wrap"><table><thead><tr><th>Ингредиент</th><th>г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/1682614" target="_blank" rel="noreferrer">Булгур</a></td><td>50,1</td><td>185,2</td><td>6,0</td><td>0,8</td><td>37,5</td></tr><tr><td>Вода</td><td>136,5</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr><tr><td>Соль добавленная</td><td>0,3</td><td>0,0</td><td>0,0</td><td>0,0</td><td>0,0</td></tr></tbody><tfoot><tr><th>Итого рецепт</th><th>—</th><th>185,2</th><th>6,0</th><th>0,8</th><th>37,5</th></tr></tfoot></table></div></section>
+        <section><h4>Приготовление</h4><ol class="steps"><li>Булгур промыть и сварить до мягкости.</li><li>Лишнюю воду слить, готовую крупу взвесить.</li></ol><p class="note">Вес булгура в таблице ингредиентов указан для сухой крупы.</p></section>
+      </div>
+      <section class="portion-section"><div class="portion-title"><h4>Выход и деление блюда</h4><div class="per100" data-per100="boiled-bulgur">На 100 г: 142,5 ккал · Б 4,6 · Ж 0,6 · У 28,9</div></div>
+        <div class="table-wrap"><table><thead><tr><th>Порция</th><th>готового блюда, г</th><th>ккал</th><th>Б</th><th>Ж</th><th>У</th></tr></thead><tbody><tr data-serving-row="boiled-bulgur:w" data-ratio="0.38461538461538464">
+    <td>Женщина</td><td data-portion-grams>50</td><td>71,2</td><td>2,3</td><td>0,3</td><td>14,4</td>
+  </tr><tr data-serving-row="boiled-bulgur:m" data-ratio="0.6153846153846154">
+    <td>Мужчина</td><td data-portion-grams>80</td><td>114,0</td><td>3,7</td><td>0,5</td><td>23,1</td>
+  </tr></tbody></table></div>
+      </section>
+    </div>
+  </details></section>
+  <div class="section-title" id="shopping"><div><span class="eyebrow">Каталог</span><h2>Покупки и стоимость</h2></div><p>39 товарных позиций</p></div>
+  <section class="panel">
+    <div class="shopping-note"><div class="cost-badge"><span>Купить всё с нуля</span><b>354,2 BYN</b></div><p>Это стоимость целых упаковок и нужного количества весовых товаров по ценам каталога. Алкоголь сюда не входит; все будничные обеды мужчины уже учтены. Продукты, имеющиеся дома, уменьшают фактический чек.</p></div>
+    <div class="table-wrap"><table><thead><tr><th>Товар</th><th>Магазин / источник</th><th>нужно, г</th><th>формат покупки</th><th>пачек / кг</th><th>BYN</th></tr></thead><tbody><tr><td><a href="https://edostavka.by/product/1851188" target="_blank" rel="noreferrer">Яйца куриные Omegga3 С1, </a></td><td>Е-доставка</td><td>1 261,7</td><td>упаковка 10 шт</td><td>3</td><td>9,6</td></tr><tr><td><a href="https://storage.by.prom.st/290601_prejskurant.pdf" target="_blank" rel="noreferrer">Нут Rolnik консервированный стерилизованный, 400 г</a></td><td>Prom.by · внешний прайс</td><td>273,6</td><td>банка 400 г; после слива 240 г</td><td>2</td><td>4,4</td></tr><tr><td><a href="https://edostavka.by/product/542604" target="_blank" rel="noreferrer">Фасоль консервированная Mikado красная, в собственном соку, 420 г</a></td><td>Е-доставка</td><td>786,6</td><td>банка 420 г; нужен слитый продукт</td><td>2</td><td>8,8</td></tr><tr><td><a href="https://edostavka.by/product/704159" target="_blank" rel="noreferrer">Чечевица Фермер красная, 500 г</a></td><td>Е-доставка</td><td>71</td><td>пачка 500 г</td><td>1</td><td>6,6</td></tr><tr><td><a href="https://edostavka.by/product/1661176" target="_blank" rel="noreferrer">Филе индейки, охлажденное, 1 кг</a></td><td>Е-доставка</td><td>318,7</td><td>весовой товар</td><td>0,3</td><td>9,3</td></tr><tr><td><a href="https://edostavka.by/product/1130496" target="_blank" rel="noreferrer">Фарш из филе индейки, замороженный, 500 г</a></td><td>Е-доставка</td><td>867</td><td>пачка 500 г</td><td>2</td><td>40,6</td></tr><tr><td><a href="https://edostavka.by/product/323497" target="_blank" rel="noreferrer">Грудка охлажденная цыпленка-бройлера Асобiна 1 кг</a></td><td>Е-доставка</td><td>959</td><td>фасовка около 0,6–0,75 кг</td><td>1</td><td>12,0</td></tr><tr><td><a href="https://edostavka.by/product/1784574" target="_blank" rel="noreferrer">Минтай филе без кожи, замороженное, 750 г</a></td><td>Е-доставка</td><td>416,2</td><td>пачка 750 г</td><td>1</td><td>23,9</td></tr><tr><td><a href="https://edostavka.by/product/2024356" target="_blank" rel="noreferrer">Сардельки Из индейки мини высшего сорта, 400 г</a></td><td>Е-доставка</td><td>200</td><td>пачка 400 г</td><td>1</td><td>7,9</td></tr><tr><td><a href="https://edostavka.by/product/2291966" target="_blank" rel="noreferrer">Хлеб Чиабатта Рустик 190 г  </a></td><td>Е-доставка</td><td>60</td><td>буханка 190 г</td><td>1</td><td>2,7</td></tr><tr><td><a href="https://edostavka.by/product/222339" target="_blank" rel="noreferrer">Рис Эколайн бурый, 5х100 г</a></td><td>Е-доставка</td><td>48,1</td><td>5 × 100 г</td><td>1</td><td>8,9</td></tr><tr><td><a href="https://edostavka.by/product/1637900" target="_blank" rel="noreferrer">Лапша  пшенично-гречневая SOBA, 300 г</a></td><td>Е-доставка</td><td>79,5</td><td>пачка 300 г</td><td>1</td><td>4,2</td></tr><tr><td><a href="https://edostavka.by/product/2211035" target="_blank" rel="noreferrer">Креветки очищенные с хвостом, 26/30, замороженные, 500 г</a></td><td>Е-доставка</td><td>180,8</td><td>пачка 500 г</td><td>1</td><td>32,2</td></tr><tr><td><a href="https://edostavka.by/product/240110" target="_blank" rel="noreferrer">Кальмар тушка, замороженный, 1 кг</a></td><td>Е-доставка</td><td>266,1</td><td>весовой товар</td><td>0,3</td><td>6,4</td></tr><tr><td><a href="https://edostavka.by/product/575978" target="_blank" rel="noreferrer">Творог Савушкин классический, 5%, 300 г</a></td><td>Е-доставка</td><td>275,8</td><td>пачка 300 г</td><td>1</td><td>3,6</td></tr><tr><td><a href="https://edostavka.by/product/986219" target="_blank" rel="noreferrer">Мука пшеничная Кудесница цельнозерновая, 500 г</a></td><td>Е-доставка</td><td>55,8</td><td>пачка 500 г</td><td>1</td><td>3,6</td></tr><tr><td><a href="https://edostavka.by/product/868294" target="_blank" rel="noreferrer">Крупа овсяная Империя злаков недробленая, 900 г</a></td><td>Е-доставка</td><td>65,2</td><td>пачка 900 г</td><td>1</td><td>1,9</td></tr><tr><td><a href="https://edostavka.by/product/1682614" target="_blank" rel="noreferrer">Крупа пшеничная Food Collection булгур, 400 г</a></td><td>Е-доставка</td><td>50,1</td><td>пачка 400 г</td><td>1</td><td>4,6</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное Gusto рафинированное, 900 мл</a></td><td>Е-доставка</td><td>142,5</td><td>бутылка 900 мл; для нагрева</td><td>1</td><td>5,5</td></tr><tr><td><a href="https://edostavka.by/product/2174029" target="_blank" rel="noreferrer">Масло оливковое Bom Dia Extra virgin, 500 мл</a></td><td>Е-доставка</td><td>26,8</td><td>бутылка 500 мл; для салатов</td><td>1</td><td>32,9</td></tr><tr><td><a href="https://edostavka.by/product/761983" target="_blank" rel="noreferrer">Сыр полутвердый Брест-Литовск Легкий, 35%, </a></td><td>Е-доставка</td><td>24,5</td><td>пачка 200 г</td><td>1</td><td>5,1</td></tr><tr><td><a href="https://edostavka.by/product/2199807" target="_blank" rel="noreferrer">Шейная часть свиная охлажденная, 1 кг</a></td><td>Е-доставка</td><td>440</td><td>фасовка около 0,9–1 кг</td><td>0,4</td><td>12,1</td></tr><tr><td><a href="https://edostavka.by/product/1721859" target="_blank" rel="noreferrer">Ребрышки свиные  От шефа для запекания, охлажденные, 1 кг</a></td><td>Е-доставка</td><td>562,5</td><td>фасовка около 0,65–0,75 кг</td><td>0,6</td><td>10,0</td></tr><tr><td><a href="https://edostavka.by/product/434350" target="_blank" rel="noreferrer">Картофель мытый, 1 кг</a></td><td>Е-доставка</td><td>409,1</td><td>весовой товар</td><td>0,4</td><td>0,9</td></tr><tr><td><a href="https://edostavka.by/product/656942" target="_blank" rel="noreferrer">Капуста белокочанная ранняя, 1 кг</a></td><td>Е-доставка</td><td>1 139,9</td><td>весовой товар</td><td>1,1</td><td>1,4</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый, 1 кг</a></td><td>Е-доставка</td><td>1 128</td><td>весовой товар</td><td>1,1</td><td>2,8</td></tr><tr><td><a href="https://edostavka.by/product/1972950" target="_blank" rel="noreferrer">Морковь столовая фасованная, 1 кг</a></td><td>Е-доставка</td><td>663,4</td><td>весовой товар</td><td>0,7</td><td>1,4</td></tr><tr><td><a href="https://edostavka.by/product/87673" target="_blank" rel="noreferrer">Перец сладкий, 1 кг</a></td><td>Е-доставка</td><td>1 429,5</td><td>весовой товар</td><td>1,4</td><td>18,9</td></tr><tr><td><a href="https://edostavka.by/product/720948" target="_blank" rel="noreferrer">Кабачок, 1 кг</a></td><td>Е-доставка</td><td>2 357,3</td><td>весовой товар</td><td>2,4</td><td>5,6</td></tr><tr><td><a href="https://edostavka.by/product/84697" target="_blank" rel="noreferrer">Баклажан грунтовой, 1 кг</a></td><td>Е-доставка</td><td>339,9</td><td>весовой товар</td><td>0,3</td><td>1,5</td></tr><tr><td><a href="https://edostavka.by/product/72320" target="_blank" rel="noreferrer">Грибы шампиньоны Грибная Страна </a></td><td>Е-доставка</td><td>1 517,4</td><td>пачка 600 г</td><td>3</td><td>18,9</td></tr><tr><td><a href="https://edostavka.by/product/71255" target="_blank" rel="noreferrer">Томат розовый, 1 кг</a></td><td>Е-доставка</td><td>1 970,2</td><td>весовой товар</td><td>2</td><td>6,4</td></tr><tr><td><a href="https://edostavka.by/product/720966" target="_blank" rel="noreferrer">Огурец, 1 кг. </a></td><td>Е-доставка</td><td>1 310,6</td><td>весовой товар</td><td>1,3</td><td>5,1</td></tr><tr><td><a href="https://edostavka.by/product/2174883" target="_blank" rel="noreferrer">Сельдерей, </a></td><td>Е-доставка</td><td>49,1</td><td>упаковка 50 г</td><td>1</td><td>3,3</td></tr><tr><td><a href="https://edostavka.by/product/1512730" target="_blank" rel="noreferrer">Помидоры Bizim Tarla очищенные, 640 г</a></td><td>Е-доставка</td><td>678,3</td><td>банка 640 г</td><td>2</td><td>14,8</td></tr><tr><td><a href="https://edostavka.by/product/17355" target="_blank" rel="noreferrer">Сахар свекловичный Слуцкий ТС2, песок, 1 кг</a></td><td>Е-доставка</td><td>48</td><td>пачка 1 кг</td><td>1</td><td>2,9</td></tr><tr><td><a href="https://edostavka.by/product/32400" target="_blank" rel="noreferrer">Конфеты глазированные Коммунарка Цитрон, топ, 200 г</a></td><td>Е-доставка</td><td>60</td><td>пачка 200 г</td><td>1</td><td>3,1</td></tr><tr><td><a href="https://edostavka.by/product/539012" target="_blank" rel="noreferrer">Майонез Золотая капля Провансаль Городской 50%, 200 г</a></td><td>Е-доставка</td><td>10</td><td>пачка 200 г</td><td>1</td><td>1,6</td></tr><tr><td><a href="https://daily.nedostavka.net/ru/minsk/category/krupy-makarony-sakhar" target="_blank" rel="noreferrer">Киноа «Агро-Альянс», 450 г</a></td><td>Green · Недоставка</td><td>59,4</td><td>пачка 450 г</td><td>1</td><td>9,0</td></tr></tbody><tfoot><tr><th colspan="5">Итого покупка</th><th>354,2</th></tr></tfoot></table></div>
+  </section>
+</main>
+<footer><div class="shell">Расчёт не заменяет назначения врача. Большинство ссылок ведёт на позиции Е-доставки; консервированный нут и киноа добавлены из внешних белорусских источников. При изменении марки продукта сверяйте КБЖУ на этикетке.</div></footer>
+<script type="application/json" id="recipe-data">{"shakshuka-chickpea":{"total":{"kcal":798.6669223300971,"p":44.37514563106796,"f":35.09987378640777,"c":74.94803883495145},"baseYield":970,"servings":{"w":{"ratio":0.5},"m":{"ratio":0.5}}},"chicken-baked-veg":{"total":{"kcal":519.5957549999999,"p":52.10275,"f":23.922044999999997,"c":27.008309999999998},"baseYield":665,"servings":{"w":{"ratio":0.45112781954887216},"m":{"ratio":0.5488721804511278}}},"turkey-shchi":{"total":{"kcal":459.8436363636364,"p":39.10363636363636,"f":10.94909090909091,"c":53.91090909090909},"baseYield":1000,"servings":{"mon-w":{"ratio":0.25},"mon-m":{"ratio":0.25},"tue-w":{"ratio":0.25},"tue-m":{"ratio":0.25}}},"pollock-carrot-cheese":{"total":{"kcal":445.3521122807018,"p":62.63694035087718,"f":10.868428070175439,"c":25.630000000000003},"baseYield":466,"servings":{"w":{"ratio":0.45064377682403434},"m":{"ratio":0.5493562231759657}}},"brown-rice":{"total":{"kcal":154.40100000000004,"p":3.367000000000001,"f":0.4810000000000001,"c":34.151},"baseYield":130,"servings":{"w":{"ratio":0.46153846153846156},"m":{"ratio":0.5384615384615384}}},"sausages-ciabatta-veg":{"total":{"kcal":711.37,"p":30.451999999999998,"f":49.606,"c":41.206},"baseYield":556,"servings":{"w":{"ratio":0.5},"m":{"ratio":0.5}}},"warm-chicken-bean-salad-tue":{"total":{"kcal":535.878839348903,"p":48.26581740976647,"f":20.010162774239213,"c":43.15731068648266},"baseYield":920,"servings":{"w":{"ratio":0.43478260869565216},"m":{"ratio":0.5652173913043478}}},"turkey-patties-batch":{"total":{"kcal":739.4671814671814,"p":96.32830115830114,"f":32.055752895752896,"c":16.27442084942085},"baseYield":430,"servings":{"tue-w":{"ratio":0.2441860465116279},"tue-m":{"ratio":0.2837209302325581},"wed-w":{"ratio":0.20930232558139536},"wed-m":{"ratio":0.2627906976744186}}},"stewed-vegetables-batch":{"total":{"kcal":593.7028571428572,"p":30.541071428571428,"f":21.985000000000003,"c":69.33014285714286},"baseYield":1100,"servings":{"tue-w":{"ratio":0.21818181818181817},"tue-m":{"ratio":0.2545454545454545},"wed-w":{"ratio":0.22727272727272727},"wed-m":{"ratio":0.3}}},"buckwheat-eggs-turkey":{"total":{"kcal":757.5970423452769,"p":57.287540716612384,"f":36.056524429967425,"c":51.82962540716612},"baseYield":842,"servings":{"w":{"ratio":0.5},"m":{"ratio":0.5}}},"fish-soup-batch":{"total":{"kcal":418.7963636363636,"p":36.56818181818182,"f":9.896363636363636,"c":49.054545454545455},"baseYield":1000,"servings":{"wed-w":{"ratio":0.25},"wed-m":{"ratio":0.25},"thu-w":{"ratio":0.25},"thu-m":{"ratio":0.25}}},"seafood-soba-wok":{"total":{"kcal":1130.8054118713185,"p":118.32239238785682,"f":27.518164023561397,"c":104.87809913910283},"baseYield":1596,"servings":{"wed-w":{"ratio":0.22556390977443608},"wed-m":{"ratio":0.2694235588972431},"thu-w":{"ratio":0.21929824561403508},"thu-m":{"ratio":0.2857142857142857}}},"omelet-mushroom-bean":{"total":{"kcal":666.0484391819161,"p":49.097954790096885,"f":37.055974165769655,"c":33.839612486544674},"baseYield":900,"servings":{"w":{"ratio":0.5},"m":{"ratio":0.5}}},"stuffed-zucchini-batch":{"total":{"kcal":1182.8025192479856,"p":119.83629185317815,"f":45.45522247090421,"c":87.01556374216652},"baseYield":1669,"servings":{"thu-w":{"ratio":0.21569802276812464},"thu-m":{"ratio":0.2576393049730378},"fri-w":{"ratio":0.22768124625524266},"fri-m":{"ratio":0.29898142600359495}}},"eggs-chickpea-veg":{"total":{"kcal":642.9195087719297,"p":42.368544891640866,"f":35.449861713106294,"c":36.01609907120743},"baseYield":916,"servings":{"w":{"ratio":0.5},"m":{"ratio":0.5}}},"grilled-pork-neck":{"total":{"kcal":1496.0000000000002,"p":61.60000000000001,"f":136.4,"c":5.5},"baseYield":330,"servings":{"w":{"ratio":0.45454545454545453},"m":{"ratio":0.5454545454545454}}},"grilled-potatoes":{"total":{"kcal":165.9834,"p":3.9995999999999996,"f":0.79992,"c":39.39605999999999},"baseYield":180,"servings":{"w":{"ratio":0.5},"m":{"ratio":0.5}}},"grilled-veg-friday":{"total":{"kcal":213.19022234891673,"p":12.687001140250857,"f":6.348831242873432,"c":27.93397947548461},"baseYield":550,"servings":{"w":{"ratio":0.45454545454545453},"m":{"ratio":0.5454545454545454}}},"savory-oats-chicken":{"total":{"kcal":717.0009939759037,"p":57.406987951807224,"f":33.412951807228914,"c":45.93862048192771},"baseYield":618,"servings":{"w":{"ratio":0.5},"m":{"ratio":0.5}}},"warm-chicken-bean-salad-sat":{"total":{"kcal":501.430904723779,"p":49.11865492393915,"f":17.778254603682946,"c":38.489607686148915},"baseYield":880,"servings":{"w":{"ratio":0.45454545454545453},"m":{"ratio":0.5454545454545454}}},"grilled-ribs":{"total":{"kcal":1687.5,"p":61.875,"f":157.5,"c":5.625},"baseYield":450,"servings":{"w":{"ratio":0.4444444444444444},"m":{"ratio":0.5555555555555556}}},"grilled-veg-saturday":{"total":{"kcal":206.52991071428573,"p":12.762687969924812,"f":5.65171522556391,"c":27.742951127819552},"baseYield":550,"servings":{"w":{"ratio":0.45454545454545453},"m":{"ratio":0.5454545454545454}}},"savory-syrniki":{"total":{"kcal":534.5415211267606,"p":54.628450704225365,"f":26.125051643192496,"c":23.01882629107981},"baseYield":356,"servings":{"w":{"ratio":0.449438202247191},"m":{"ratio":0.550561797752809}}},"fresh-veg-sunday":{"total":{"kcal":54.25,"p":3.2375,"f":0.5425,"c":10.3775},"baseYield":350,"servings":{"w":{"ratio":0.42857142857142855},"m":{"ratio":0.5714285714285714}}},"bean-egg-salad":{"total":{"kcal":831.1,"p":68.435,"f":38.245000000000005,"c":55.10300000000001},"baseYield":930,"servings":{"w":{"ratio":0.5},"m":{"ratio":0.5}}},"baked-chicken-sunday":{"total":{"kcal":474.76800000000003,"p":75.6,"f":19.152,"c":0},"baseYield":280,"servings":{"w":{"ratio":0.4642857142857143},"m":{"ratio":0.5357142857142857}}},"vegetable-stew-sunday":{"total":{"kcal":201.615525,"p":10.602735000000001,"f":6.793305,"c":25.760985000000005},"baseYield":450,"servings":{"w":{"ratio":0.4444444444444444},"m":{"ratio":0.5555555555555556}}},"boiled-bulgur":{"total":{"kcal":185.18500000000003,"p":6.006,"f":0.75075,"c":37.5375},"baseYield":130,"servings":{"w":{"ratio":0.38461538461538464},"m":{"ratio":0.6153846153846154}}}}</script>
+<script>
+const recipeData=JSON.parse(document.getElementById('recipe-data').textContent);
+const n=new Intl.NumberFormat('ru-RU',{maximumFractionDigits:1,minimumFractionDigits:1});
+const g=new Intl.NumberFormat('ru-RU',{maximumFractionDigits:1});
+document.querySelectorAll('[data-open-recipe]').forEach(link=>link.addEventListener('click',()=>{
+  const card=document.querySelector('[data-recipe-card="'+link.dataset.openRecipe+'"]');
+  if(card)card.open=true;
+}));
+function openRecipeFromHash(){
+  if(!location.hash)return;
+  const card=document.querySelector(location.hash);
+  if(card&&card.matches('[data-recipe-card]')){
+    card.open=true;
+  }
+}
+openRecipeFromHash();
+function revealHashTarget(){
+  openRecipeFromHash();
+  const target=location.hash&&document.querySelector(location.hash);
+  if(target)setTimeout(()=>target.scrollIntoView({block:'start'}),0);
+}
+window.addEventListener('load',revealHashTarget);
+window.addEventListener('hashchange',revealHashTarget);
+document.querySelectorAll('[data-yield-input]').forEach(input=>input.addEventListener('input',()=>{
+  const id=input.dataset.yieldInput,data=recipeData[id],value=Math.max(1,Number(input.value)||data.baseYield);
+  const per100={kcal:data.total.kcal*100/value,p:data.total.p*100/value,f:data.total.f*100/value,c:data.total.c*100/value};
+  document.querySelector('[data-per100="'+id+'"]').textContent='На 100 г: '+n.format(per100.kcal)+' ккал · Б '+n.format(per100.p)+' · Ж '+n.format(per100.f)+' · У '+n.format(per100.c);
+  Object.entries(data.servings).forEach(([key,serving])=>{
+    const grams=value*serving.ratio;
+    const row=document.querySelector('[data-serving-row="'+id+':'+key+'"] [data-portion-grams]');
+    if(row)row.textContent=g.format(grams);
+    document.querySelectorAll('[data-menu-portion="'+id+':'+key+'"]').forEach(node=>node.textContent=g.format(grams));
+  });
+}));
+document.querySelectorAll('[data-day-filter]').forEach(button=>button.addEventListener('click',()=>{
+  document.querySelectorAll('[data-day-filter]').forEach(b=>b.classList.remove('active'));button.classList.add('active');
+  const filter=button.dataset.dayFilter;
+  document.querySelectorAll('[data-day]').forEach(card=>card.classList.toggle('hidden-day',filter!=='all'&&card.dataset.day!==filter));
+}));
+document.getElementById('recipe-search').addEventListener('input',event=>{
+  const q=event.target.value.trim().toLocaleLowerCase('ru');
+  document.querySelectorAll('[data-recipe-card]').forEach(card=>{const show=!q||card.textContent.toLocaleLowerCase('ru').includes(q);card.hidden=!show;if(show&&q)card.open=true;});
+});
+</script>
+</body></html>
