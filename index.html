@@ -34,6 +34,8 @@ thead th{background:var(--teal2);color:var(--ink)}
 .yield-audit{margin:5px 0 12px;font-size:11px}.yield-audit-trigger{border:0;border-bottom:1px dashed var(--teal);background:none;color:var(--teal);padding:3px 0;cursor:pointer;text-align:left}.yield-audit-trigger:focus-visible{outline:2px solid var(--teal);outline-offset:4px}.variant-mini>.yield-audit{grid-column:1/-1;padding:0 12px;margin-bottom:8px}.yield-audit-panel{position:fixed;z-index:40;width:min(680px,calc(100vw - 24px));max-height:72vh;overflow:auto;overscroll-behavior:contain;border:1px solid #9dccca;border-radius:12px;background:#fff;box-shadow:0 10px 35px rgba(23,50,77,.18);padding:15px;font-size:11px;color:var(--ink);font-weight:300}.yield-audit-panel[hidden]{display:none}.yield-audit-heading{display:flex;align-items:start;justify-content:space-between;gap:12px}.yield-audit-heading>b{font-size:13px}.yield-audit-heading button{font-size:20px;line-height:1;border:1px solid var(--line);border-radius:5px;background:#fff;cursor:pointer;padding:1px 6px}.yield-audit-panel p{margin:9px 0;font-size:11px}.yield-audit-rows{list-style:none;margin:8px 0;padding:0}.yield-audit-rows>li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 10px;padding:7px 0;border-top:1px solid var(--line)}.yield-audit-rows b{font-weight:500;overflow-wrap:anywhere}.yield-audit-rows span{white-space:nowrap}.yield-audit-rows small{grid-column:1/-1;color:var(--muted);font-size:10px}.yield-audit-total{background:var(--teal2);padding:8px;border-radius:6px;font-weight:500}.recipe-card .yield-source-help>summary{display:block;font-size:11px;padding:8px 0;color:var(--teal)}.recipe-card .yield-source-help>summary:after{content:none}.yield-source-help ul{padding-left:18px}.yield-source-help li{margin:8px 0}.yield-source-help a{overflow-wrap:anywhere}
 @media(max-width:560px){.yield-audit-rows>li{grid-template-columns:1fr}.yield-audit-rows span,.yield-audit-rows small{grid-column:1}.yield-audit-panel{padding:12px}}
 .yield-audit-rows>li.yield-audit-unchanged{grid-template-columns:minmax(0,1fr) auto}.yield-audit-unchanged>span{grid-column:2;grid-row:1}.yield-operation-formula{font-weight:600}.yield-analogue-note{color:var(--muted)}
+.yield-operation{margin-top:12px}.yield-operation+.yield-operation{border-top:1px solid var(--line);padding-top:12px}.yield-audit-panel .yield-operation h4{font-size:12px;margin:0 0 7px}.yield-input-table th,.yield-input-table td,.yield-balance-table th,.yield-balance-table td{padding:5px 7px}.yield-audit-panel thead th{position:static}.yield-input-sum{overflow-wrap:anywhere}.yield-balance-table{table-layout:fixed}.yield-balance-table th:first-child{width:38%}.yield-balance-table th:nth-child(2){width:36%}.yield-balance-table th,.yield-balance-table td{white-space:normal;vertical-align:top}.yield-balance-table th:last-child,.yield-balance-table td:last-child{white-space:nowrap}.yield-audit-total>span{display:block;margin-top:4px;font-size:10px}
+@media(max-width:560px){.yield-balance-table{font-size:10px}.yield-balance-table th,.yield-balance-table td{padding:5px 3px}.yield-balance-table th:first-child{width:35%}.yield-balance-table th:nth-child(2){width:38%}}
 @media print{.yield-audit{display:none!important}}
 @page{size:A4 landscape;margin:6mm}
 @media print{
@@ -316,18 +318,27 @@ thead th{background:var(--teal2);color:var(--ink)}
     <button type="button" class="yield-audit-trigger" aria-expanded="false" aria-controls="yield-audit-shakshuka-chickpea-foundation">Как рассчитан выход ⓘ</button>
     <div class="yield-audit-panel" id="yield-audit-shakshuka-chickpea-foundation" role="region" aria-label="Расчёт выхода: Шакшука · 3 варианта" hidden>
       <div class="yield-audit-heading"><b>Расчёт по этапам · справочный аналог</b><button type="button" data-close-yield-audit aria-label="Закрыть расчёт выхода">×</button></div>
-      <section class="yield-operation"><h4>1. Овощная основа — уваривание</h4>
-    <ul class="yield-audit-rows"><li class="yield-audit-unchanged"><b>Помидоры очищенные</b><span>420 г</span></li><li class="yield-audit-unchanged"><b>Перец сладкий</b><span>100 г</span></li><li class="yield-audit-unchanged"><b>Лук репчатый</b><span>103,6 г</span></li><li class="yield-audit-unchanged"><b>Масло подсолнечное рафинированное</b><span>8 г</span></li><li class="yield-audit-unchanged"><b>Соль добавленная</b><span>1,4 г</span></li><li class="yield-audit-unchanged"><b>Специи и сушёные травы</b><span>1,9 г</span></li></ul>
-    <p class="yield-operation-formula">634,9 г × 0,83 ≈ 527 г</p>
-    <p>При уваривании уходит примерно 108 г воды. Соки овощей остаются в соусе; масло, соль и специи не вычитаем отдельно.</p>
-    <p><a href="https://www.foodstandards.gov.au/sites/default/files/2023-12/npc-final-weight-change-factors%20%281%29.pdf#page=8" target="_blank" rel="noreferrer">FSANZ · томатный соус без мяса</a> · 10A1 · томатный соус без мяса · Simmered · −17%; PDF, стр. 8. 1 + (−17 / 100) = 0,83. Применяем к соусу целиком, не отдельно к овощам.</p>
-    <p class="yield-analogue-note">В справочнике — соус из исходных ингредиентов; у нас консервированные томаты и свой состав.</p>
+      <section class="yield-operation"><h4>1. Соус — испарение воды</h4>
+    <p>При уваривании из соуса испаряется вода. В <a href="https://www.foodstandards.gov.au/sites/default/files/2023-12/npc-final-weight-change-factors%20%281%29.pdf#page=8" target="_blank" rel="noreferrer" title="10A1 · Pasta sauce, tomato-based (no meat), from raw ingredients · Simmered · −17%">FSANZ</a> для томатного соуса без мяса указано уменьшение массы на <b>17%</b> (10A1, стр. 8). Берём эту строку как аналог для всего нашего соуса, а не как отдельный процент для помидоров, перца или лука.</p>
+    <p>Соки овощей остаются в соусе. Масло, соль и специи сохраняем; отдельно их массу не уменьшаем.</p>
+    <table class="yield-input-table" aria-label="Исходный состав соуса"><thead><tr><th>В соус до уваривания</th><th>г</th></tr></thead><tbody><tr><td>Помидоры очищенные</td><td>420</td></tr><tr><td>Перец сладкий</td><td>100</td></tr><tr><td>Лук репчатый</td><td>103,6</td></tr><tr><td>Масло подсолнечное рафинированное</td><td>8</td></tr><tr><td>Соль добавленная</td><td>1,4</td></tr><tr><td>Специи и сушёные травы</td><td>1,9</td></tr></tbody><tfoot><tr><th>Всего до уваривания</th><th>634,9</th></tr></tfoot></table>
+    <p class="yield-operation-formula yield-input-sum">420 + 100 + 103,6 + 8 + 1,4 + 1,9 = 634,9 г</p>
+    <table class="yield-balance-table" aria-label="Расчёт испарения воды"><thead><tr><th>Что считаем</th><th>Расчёт</th><th>Результат</th></tr></thead><tbody>
+      <tr data-yield-water-loss><td>Испарившаяся вода</td><td>634,9 × 17%</td><td>≈107,9 г</td></tr>
+      <tr data-yield-sauce-output><td>Соус после уваривания</td><td>634,9 − 107,9</td><td>≈527 г</td></tr>
+    </tbody></table>
+    <p class="yield-analogue-note">То же через коэффициент: 634,9 г × 0,83 ≈ 527 г. Потеря 107,9 г — это около 108 г воды.</p>
   </section>
-  <section class="yield-operation"><h4>2. Добавляем после уваривания</h4>
-    <ul class="yield-audit-rows"><li class="yield-audit-unchanged"><b>Яйца куриные</b><span>220 г</span></li></ul>
-    <p>Яйца схватываются под крышкой, выделившаяся жидкость остаётся в соусе. Отдельную усушку добавкам не начисляем.</p>
+  <section class="yield-operation"><h4>2. Яйца — добавляем к готовому соусу</h4>
+    <p>Скорлупа в рецепт не входит. Принято <b>55 г съедобной части на яйцо</b>: 4 × 55 = <b>220 г без скорлупы</b>. Это уже очищенный вес — скорлупу повторно не вычитаем.</p>
+
+    <p>Яйца готовим под крышкой, выделившаяся жидкость остаётся в соусе. В расчёте массу этих добавок сохраняем.</p>
   </section>
-  <p class="yield-audit-total">527 + 220 ≈ 747 г готового блюда</p>
+  <section class="yield-operation"><h4>3. Итого на двоих</h4>
+    <p class="yield-operation-formula">527 + 220 ≈ 747 г готового блюда</p>
+    <div class="yield-audit-total" data-yield-final><b>≈747 г · 621,6 ккал</b><span>Белки 33,9 г · Жиры 33,2 г · Углеводы 49,7 г</span></div>
+    <p class="yield-analogue-note">КБЖУ — сумма по всем ингредиентам. Испарившаяся вода уменьшает вес, но калории и БЖУ из суммы не вычитаем.</p>
+  </section>
     </div>
   </div>
         <div class="table-wrap"><table class="foundation-ingredients" aria-label="Ингредиенты общей основы"><tbody><tr><td><a href="https://edostavka.by/product/1851188" target="_blank" rel="noreferrer">Яйца куриные</a></td><td>4 шт. · 220 г</td></tr><tr><td><a href="https://edostavka.by/product/1512730" target="_blank" rel="noreferrer">Помидоры очищенные</a></td><td>420 г</td></tr><tr><td><a href="https://edostavka.by/product/87673" target="_blank" rel="noreferrer">Перец сладкий</a></td><td>100 г</td></tr><tr><td><a href="https://edostavka.by/product/720961" target="_blank" rel="noreferrer">Лук репчатый</a></td><td>103,6 г</td></tr><tr><td><a href="https://edostavka.by/product/778203" target="_blank" rel="noreferrer">Масло подсолнечное рафинированное</a></td><td>8 г</td></tr><tr><td>Соль добавленная</td><td>1,4 г</td></tr><tr><td>Специи и сушёные травы</td><td>1,9 г</td></tr></tbody></table></div>
@@ -345,18 +356,27 @@ thead th{background:var(--teal2);color:var(--ink)}
     <button type="button" class="yield-audit-trigger" aria-expanded="false" aria-controls="yield-audit-shakshuka-chickpea-classic">Как рассчитан выход ⓘ</button>
     <div class="yield-audit-panel" id="yield-audit-shakshuka-chickpea-classic" role="region" aria-label="Расчёт выхода: Шакшука · 3 варианта" hidden>
       <div class="yield-audit-heading"><b>Расчёт по этапам · справочный аналог</b><button type="button" data-close-yield-audit aria-label="Закрыть расчёт выхода">×</button></div>
-      <section class="yield-operation"><h4>1. Овощная основа — уваривание</h4>
-    <ul class="yield-audit-rows"><li class="yield-audit-unchanged"><b>Помидоры очищенные</b><span>420 г</span></li><li class="yield-audit-unchanged"><b>Перец сладкий</b><span>100 г</span></li><li class="yield-audit-unchanged"><b>Лук репчатый</b><span>103,6 г</span></li><li class="yield-audit-unchanged"><b>Масло подсолнечное рафинированное</b><span>8 г</span></li><li class="yield-audit-unchanged"><b>Соль добавленная</b><span>1,4 г</span></li><li class="yield-audit-unchanged"><b>Специи и сушёные травы</b><span>1,9 г</span></li></ul>
-    <p class="yield-operation-formula">634,9 г × 0,83 ≈ 527 г</p>
-    <p>При уваривании уходит примерно 108 г воды. Соки овощей остаются в соусе; масло, соль и специи не вычитаем отдельно.</p>
-    <p><a href="https://www.foodstandards.gov.au/sites/default/files/2023-12/npc-final-weight-change-factors%20%281%29.pdf#page=8" target="_blank" rel="noreferrer">FSANZ · томатный соус без мяса</a> · 10A1 · томатный соус без мяса · Simmered · −17%; PDF, стр. 8. 1 + (−17 / 100) = 0,83. Применяем к соусу целиком, не отдельно к овощам.</p>
-    <p class="yield-analogue-note">В справочнике — соус из исходных ингредиентов; у нас консервированные томаты и свой состав.</p>
+      <section class="yield-operation"><h4>1. Соус — испарение воды</h4>
+    <p>При уваривании из соуса испаряется вода. В <a href="https://www.foodstandards.gov.au/sites/default/files/2023-12/npc-final-weight-change-factors%20%281%29.pdf#page=8" target="_blank" rel="noreferrer" title="10A1 · Pasta sauce, tomato-based (no meat), from raw ingredients · Simmered · −17%">FSANZ</a> для томатного соуса без мяса указано уменьшение массы на <b>17%</b> (10A1, стр. 8). Берём эту строку как аналог для всего нашего соуса, а не как отдельный процент для помидоров, перца или лука.</p>
+    <p>Соки овощей остаются в соусе. Масло, соль и специи сохраняем; отдельно их массу не уменьшаем.</p>
+    <table class="yield-input-table" aria-label="Исходный состав соуса"><thead><tr><th>В соус до уваривания</th><th>г</th></tr></thead><tbody><tr><td>Помидоры очищенные</td><td>420</td></tr><tr><td>Перец сладкий</td><td>100</td></tr><tr><td>Лук репчатый</td><td>103,6</td></tr><tr><td>Масло подсолнечное рафинированное</td><td>8</td></tr><tr><td>Соль добавленная</td><td>1,4</td></tr><tr><td>Специи и сушёные травы</td><td>1,9</td></tr></tbody><tfoot><tr><th>Всего до уваривания</th><th>634,9</th></tr></tfoot></table>
+    <p class="yield-operation-formula yield-input-sum">420 + 100 + 103,6 + 8 + 1,4 + 1,9 = 634,9 г</p>
+    <table class="yield-balance-table" aria-label="Расчёт испарения воды"><thead><tr><th>Что считаем</th><th>Расчёт</th><th>Результат</th></tr></thead><tbody>
+      <tr data-yield-water-loss><td>Испарившаяся вода</td><td>634,9 × 17%</td><td>≈107,9 г</td></tr>
+      <tr data-yield-sauce-output><td>Соус после уваривания</td><td>634,9 − 107,9</td><td>≈527 г</td></tr>
+    </tbody></table>
+    <p class="yield-analogue-note">То же через коэффициент: 634,9 г × 0,83 ≈ 527 г. Потеря 107,9 г — это около 108 г воды.</p>
   </section>
-  <section class="yield-operation"><h4>2. Добавляем после уваривания</h4>
-    <ul class="yield-audit-rows"><li class="yield-audit-unchanged"><b>Яйца куриные</b><span>330 г</span></li></ul>
-    <p>Яйца схватываются под крышкой, выделившаяся жидкость остаётся в соусе. Отдельную усушку добавкам не начисляем.</p>
+  <section class="yield-operation"><h4>2. Яйца — добавляем к готовому соусу</h4>
+    <p>Скорлупа в рецепт не входит. Принято <b>55 г съедобной части на яйцо</b>: 6 × 55 = <b>330 г без скорлупы</b>. Это уже очищенный вес — скорлупу повторно не вычитаем.</p>
+
+    <p>Яйца готовим под крышкой, выделившаяся жидкость остаётся в соусе. В расчёте массу этих добавок сохраняем.</p>
   </section>
-  <p class="yield-audit-total">527 + 330 ≈ 857 г готового блюда</p>
+  <section class="yield-operation"><h4>3. Итого на двоих</h4>
+    <p class="yield-operation-formula">527 + 330 ≈ 857 г готового блюда</p>
+    <div class="yield-audit-total" data-yield-final><b>≈857 г · 786,6 ккал</b><span>Белки 47,1 г · Жиры 45,3 г · Углеводы 50,2 г</span></div>
+    <p class="yield-analogue-note">КБЖУ — сумма по всем ингредиентам. Испарившаяся вода уменьшает вес, но калории и БЖУ из суммы не вычитаем.</p>
+  </section>
     </div>
   </div>
   </article><article class="variant-mini" data-option-card="base">
@@ -369,18 +389,27 @@ thead th{background:var(--teal2);color:var(--ink)}
     <button type="button" class="yield-audit-trigger" aria-expanded="false" aria-controls="yield-audit-shakshuka-chickpea-base">Как рассчитан выход ⓘ</button>
     <div class="yield-audit-panel" id="yield-audit-shakshuka-chickpea-base" role="region" aria-label="Расчёт выхода: Шакшука · 3 варианта" hidden>
       <div class="yield-audit-heading"><b>Расчёт по этапам · справочный аналог</b><button type="button" data-close-yield-audit aria-label="Закрыть расчёт выхода">×</button></div>
-      <section class="yield-operation"><h4>1. Овощная основа — уваривание</h4>
-    <ul class="yield-audit-rows"><li class="yield-audit-unchanged"><b>Помидоры очищенные</b><span>420 г</span></li><li class="yield-audit-unchanged"><b>Перец сладкий</b><span>100 г</span></li><li class="yield-audit-unchanged"><b>Лук репчатый</b><span>103,6 г</span></li><li class="yield-audit-unchanged"><b>Масло подсолнечное рафинированное</b><span>8 г</span></li><li class="yield-audit-unchanged"><b>Соль добавленная</b><span>1,4 г</span></li><li class="yield-audit-unchanged"><b>Специи и сушёные травы</b><span>1,9 г</span></li></ul>
-    <p class="yield-operation-formula">634,9 г × 0,83 ≈ 527 г</p>
-    <p>При уваривании уходит примерно 108 г воды. Соки овощей остаются в соусе; масло, соль и специи не вычитаем отдельно.</p>
-    <p><a href="https://www.foodstandards.gov.au/sites/default/files/2023-12/npc-final-weight-change-factors%20%281%29.pdf#page=8" target="_blank" rel="noreferrer">FSANZ · томатный соус без мяса</a> · 10A1 · томатный соус без мяса · Simmered · −17%; PDF, стр. 8. 1 + (−17 / 100) = 0,83. Применяем к соусу целиком, не отдельно к овощам.</p>
-    <p class="yield-analogue-note">В справочнике — соус из исходных ингредиентов; у нас консервированные томаты и свой состав.</p>
+      <section class="yield-operation"><h4>1. Соус — испарение воды</h4>
+    <p>При уваривании из соуса испаряется вода. В <a href="https://www.foodstandards.gov.au/sites/default/files/2023-12/npc-final-weight-change-factors%20%281%29.pdf#page=8" target="_blank" rel="noreferrer" title="10A1 · Pasta sauce, tomato-based (no meat), from raw ingredients · Simmered · −17%">FSANZ</a> для томатного соуса без мяса указано уменьшение массы на <b>17%</b> (10A1, стр. 8). Берём эту строку как аналог для всего нашего соуса, а не как отдельный процент для помидоров, перца или лука.</p>
+    <p>Соки овощей остаются в соусе. Масло, соль и специи сохраняем; отдельно их массу не уменьшаем.</p>
+    <table class="yield-input-table" aria-label="Исходный состав соуса"><thead><tr><th>В соус до уваривания</th><th>г</th></tr></thead><tbody><tr><td>Помидоры очищенные</td><td>420</td></tr><tr><td>Перец сладкий</td><td>100</td></tr><tr><td>Лук репчатый</td><td>103,6</td></tr><tr><td>Масло подсолнечное рафинированное</td><td>8</td></tr><tr><td>Соль добавленная</td><td>1,4</td></tr><tr><td>Специи и сушёные травы</td><td>1,9</td></tr></tbody><tfoot><tr><th>Всего до уваривания</th><th>634,9</th></tr></tfoot></table>
+    <p class="yield-operation-formula yield-input-sum">420 + 100 + 103,6 + 8 + 1,4 + 1,9 = 634,9 г</p>
+    <table class="yield-balance-table" aria-label="Расчёт испарения воды"><thead><tr><th>Что считаем</th><th>Расчёт</th><th>Результат</th></tr></thead><tbody>
+      <tr data-yield-water-loss><td>Испарившаяся вода</td><td>634,9 × 17%</td><td>≈107,9 г</td></tr>
+      <tr data-yield-sauce-output><td>Соус после уваривания</td><td>634,9 − 107,9</td><td>≈527 г</td></tr>
+    </tbody></table>
+    <p class="yield-analogue-note">То же через коэффициент: 634,9 г × 0,83 ≈ 527 г. Потеря 107,9 г — это около 108 г воды.</p>
   </section>
-  <section class="yield-operation"><h4>2. Добавляем после уваривания</h4>
-    <ul class="yield-audit-rows"><li class="yield-audit-unchanged"><b>Яйца куриные</b><span>220 г</span></li><li class="yield-audit-unchanged"><b>Нут консервированный</b><span>155 г</span></li></ul>
-    <p>Яйца схватываются под крышкой, выделившаяся жидкость остаётся в соусе. Готовые бобовые только прогреваем. Отдельную усушку добавкам не начисляем.</p>
+  <section class="yield-operation"><h4>2. Яйца и бобовые — добавляем к готовому соусу</h4>
+    <p>Скорлупа в рецепт не входит. Принято <b>55 г съедобной части на яйцо</b>: 4 × 55 = <b>220 г без скорлупы</b>. Это уже очищенный вес — скорлупу повторно не вычитаем.</p>
+    <ul class="yield-audit-rows"><li class="yield-audit-unchanged"><b>Нут консервированный</b><span>155 г</span></li></ul>
+    <p>Яйца готовим под крышкой, выделившаяся жидкость остаётся в соусе. Бобовые уже сварены: берём вес после слива и только прогреваем. В расчёте массу этих добавок сохраняем.</p>
   </section>
-  <p class="yield-audit-total">527 + 220 + 155 ≈ 902 г готового блюда</p>
+  <section class="yield-operation"><h4>3. Итого на двоих</h4>
+    <p class="yield-operation-formula">527 + 220 + 155 ≈ 902 г готового блюда</p>
+    <div class="yield-audit-total" data-yield-final><b>≈902 г · 799,0 ккал</b><span>Белки 45,5 г · Жиры 36,2 г · Углеводы 70,9 г</span></div>
+    <p class="yield-analogue-note">КБЖУ — сумма по всем ингредиентам. Испарившаяся вода уменьшает вес, но калории и БЖУ из суммы не вычитаем.</p>
+  </section>
     </div>
   </div>
   </article><article class="variant-mini" data-option-card="beans">
@@ -393,18 +422,27 @@ thead th{background:var(--teal2);color:var(--ink)}
     <button type="button" class="yield-audit-trigger" aria-expanded="false" aria-controls="yield-audit-shakshuka-chickpea-beans">Как рассчитан выход ⓘ</button>
     <div class="yield-audit-panel" id="yield-audit-shakshuka-chickpea-beans" role="region" aria-label="Расчёт выхода: Шакшука · 3 варианта" hidden>
       <div class="yield-audit-heading"><b>Расчёт по этапам · справочный аналог</b><button type="button" data-close-yield-audit aria-label="Закрыть расчёт выхода">×</button></div>
-      <section class="yield-operation"><h4>1. Овощная основа — уваривание</h4>
-    <ul class="yield-audit-rows"><li class="yield-audit-unchanged"><b>Помидоры очищенные</b><span>420 г</span></li><li class="yield-audit-unchanged"><b>Перец сладкий</b><span>100 г</span></li><li class="yield-audit-unchanged"><b>Лук репчатый</b><span>103,6 г</span></li><li class="yield-audit-unchanged"><b>Масло подсолнечное рафинированное</b><span>8 г</span></li><li class="yield-audit-unchanged"><b>Соль добавленная</b><span>1,4 г</span></li><li class="yield-audit-unchanged"><b>Специи и сушёные травы</b><span>1,9 г</span></li></ul>
-    <p class="yield-operation-formula">634,9 г × 0,83 ≈ 527 г</p>
-    <p>При уваривании уходит примерно 108 г воды. Соки овощей остаются в соусе; масло, соль и специи не вычитаем отдельно.</p>
-    <p><a href="https://www.foodstandards.gov.au/sites/default/files/2023-12/npc-final-weight-change-factors%20%281%29.pdf#page=8" target="_blank" rel="noreferrer">FSANZ · томатный соус без мяса</a> · 10A1 · томатный соус без мяса · Simmered · −17%; PDF, стр. 8. 1 + (−17 / 100) = 0,83. Применяем к соусу целиком, не отдельно к овощам.</p>
-    <p class="yield-analogue-note">В справочнике — соус из исходных ингредиентов; у нас консервированные томаты и свой состав.</p>
+      <section class="yield-operation"><h4>1. Соус — испарение воды</h4>
+    <p>При уваривании из соуса испаряется вода. В <a href="https://www.foodstandards.gov.au/sites/default/files/2023-12/npc-final-weight-change-factors%20%281%29.pdf#page=8" target="_blank" rel="noreferrer" title="10A1 · Pasta sauce, tomato-based (no meat), from raw ingredients · Simmered · −17%">FSANZ</a> для томатного соуса без мяса указано уменьшение массы на <b>17%</b> (10A1, стр. 8). Берём эту строку как аналог для всего нашего соуса, а не как отдельный процент для помидоров, перца или лука.</p>
+    <p>Соки овощей остаются в соусе. Масло, соль и специи сохраняем; отдельно их массу не уменьшаем.</p>
+    <table class="yield-input-table" aria-label="Исходный состав соуса"><thead><tr><th>В соус до уваривания</th><th>г</th></tr></thead><tbody><tr><td>Помидоры очищенные</td><td>420</td></tr><tr><td>Перец сладкий</td><td>100</td></tr><tr><td>Лук репчатый</td><td>103,6</td></tr><tr><td>Масло подсолнечное рафинированное</td><td>8</td></tr><tr><td>Соль добавленная</td><td>1,4</td></tr><tr><td>Специи и сушёные травы</td><td>1,9</td></tr></tbody><tfoot><tr><th>Всего до уваривания</th><th>634,9</th></tr></tfoot></table>
+    <p class="yield-operation-formula yield-input-sum">420 + 100 + 103,6 + 8 + 1,4 + 1,9 = 634,9 г</p>
+    <table class="yield-balance-table" aria-label="Расчёт испарения воды"><thead><tr><th>Что считаем</th><th>Расчёт</th><th>Результат</th></tr></thead><tbody>
+      <tr data-yield-water-loss><td>Испарившаяся вода</td><td>634,9 × 17%</td><td>≈107,9 г</td></tr>
+      <tr data-yield-sauce-output><td>Соус после уваривания</td><td>634,9 − 107,9</td><td>≈527 г</td></tr>
+    </tbody></table>
+    <p class="yield-analogue-note">То же через коэффициент: 634,9 г × 0,83 ≈ 527 г. Потеря 107,9 г — это около 108 г воды.</p>
   </section>
-  <section class="yield-operation"><h4>2. Добавляем после уваривания</h4>
-    <ul class="yield-audit-rows"><li class="yield-audit-unchanged"><b>Яйца куриные</b><span>220 г</span></li><li class="yield-audit-unchanged"><b>Фасоль консервированная</b><span>120 г</span></li></ul>
-    <p>Яйца схватываются под крышкой, выделившаяся жидкость остаётся в соусе. Готовые бобовые только прогреваем. Отдельную усушку добавкам не начисляем.</p>
+  <section class="yield-operation"><h4>2. Яйца и бобовые — добавляем к готовому соусу</h4>
+    <p>Скорлупа в рецепт не входит. Принято <b>55 г съедобной части на яйцо</b>: 4 × 55 = <b>220 г без скорлупы</b>. Это уже очищенный вес — скорлупу повторно не вычитаем.</p>
+    <ul class="yield-audit-rows"><li class="yield-audit-unchanged"><b>Фасоль консервированная</b><span>120 г</span></li></ul>
+    <p>Яйца готовим под крышкой, выделившаяся жидкость остаётся в соусе. Бобовые уже сварены: берём вес после слива и только прогреваем. В расчёте массу этих добавок сохраняем.</p>
   </section>
-  <p class="yield-audit-total">527 + 220 + 120 ≈ 867 г готового блюда</p>
+  <section class="yield-operation"><h4>3. Итого на двоих</h4>
+    <p class="yield-operation-formula">527 + 220 + 120 ≈ 867 г готового блюда</p>
+    <div class="yield-audit-total" data-yield-final><b>≈867 г · 711,6 ккал</b><span>Белки 39,9 г · Жиры 33,8 г · Углеводы 65,3 г</span></div>
+    <p class="yield-analogue-note">КБЖУ — сумма по всем ингредиентам. Испарившаяся вода уменьшает вес, но калории и БЖУ из суммы не вычитаем.</p>
+  </section>
     </div>
   </div>
   </article></div>
@@ -1455,9 +1493,14 @@ document.querySelectorAll('.yield-audit').forEach(wrapper=>{
   function position(){
     if(panel.hidden)return;
     const rect=button.getBoundingClientRect();
+    const gap=8,margin=12;
+    const below=Math.max(0,innerHeight-rect.bottom-gap-margin);
+    const above=Math.max(0,rect.top-gap-margin);
+    const useBelow=below>=Math.min(innerHeight*.72,panel.scrollHeight)||below>=above;
+    panel.style.maxHeight=Math.min(innerHeight*.72,useBelow?below:above)+'px';
     const width=panel.offsetWidth,height=panel.offsetHeight;
     panel.style.left=Math.max(12,Math.min(rect.left,innerWidth-width-12))+'px';
-    panel.style.top=Math.max(12,Math.min(rect.bottom+8,innerHeight-height-12))+'px';
+    panel.style.top=Math.max(margin,Math.min(useBelow?rect.bottom+gap:rect.top-gap-height,innerHeight-height-margin))+'px';
   }
   function show(){clearTimeout(closeTimer);panel.hidden=false;button.setAttribute('aria-expanded','true');position();}
   function hide(){clearTimeout(closeTimer);panel.hidden=true;pinned=false;button.setAttribute('aria-expanded','false');}
