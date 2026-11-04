@@ -39,6 +39,7 @@ thead th{background:var(--teal2);color:var(--ink)}
 @media(max-width:560px){.yield-balance-table{font-size:10px}.yield-balance-table th,.yield-balance-table td{padding:5px 3px}.yield-balance-table th:first-child{width:35%}.yield-balance-table th:nth-child(2){width:38%}}
 .shchi-variants{border-top:1px solid var(--line);margin-top:18px;padding-top:16px}.shchi-option-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.shchi-option{border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0}.shchi-option>h4{background:var(--teal2);padding:8px;margin:-12px -12px 10px!important;border-radius:10px 10px 0 0}.shchi-option>p{font-size:12px}.shchi-option-result{line-height:1.8}.shchi-option-result>b{font-size:20px}.shchi-option .portion-note{font-size:10px}.shchi-option .yield-audit-panel table{font-size:10px}.shchi-option .yield-audit-panel th,.shchi-option .yield-audit-panel td{padding:4px 3px}
 @media(max-width:650px){.shchi-option-grid{grid-template-columns:1fr}}
+.shchi-option .variant-delta{margin:0 0 12px}
 @media print{.yield-audit{display:none!important}}
 @page{size:A4 landscape;margin:6mm}
 @media print{[data-print-sheet="Пн"] .print-day-header{padding-bottom:2mm;margin-bottom:1.5mm}[data-print-sheet="Пн"] .print-day-menu{padding-top:1.5mm;padding-bottom:1.5mm;margin-bottom:1mm}}
@@ -492,6 +493,7 @@ thead th{background:var(--teal2);color:var(--ink)}
       </section>
       <section class="shchi-variants"><h4>Три альтернативы основному рецепту</h4><p class="portion-note">В меню и покупках — говядина без риса, рецепт выше. Ниже — замены, не дополнительные блюда: каждый вариант на 4 порции, по 4 шарика в каждую.</p>
     <div class="shchi-option-grid"><article class="shchi-option" data-shchi-option="turkey"><h4>Индейка · без риса</h4><p><a href="https://edostavka.by/product/1130496" target="_blank" rel="noreferrer">Фарш из филе индейки</a> — 200 г; без риса.</p>
+        <div class="variant-delta" data-shchi-delta><span>К базовому блюду · на 4 порции</span><b>≈+27 г готового · −78,0 ккал</b></div>
         <p class="shchi-option-result"><b>109,6 ккал</b> · ≈269,5 г на человека<br>Б 11,2 · Ж 4,9 · У 5,2</p>
         <p class="portion-note">Вся кастрюля: ≈1 078 г · 438,5 ккал<br>На 100 г расчётного веса: 40,7 ккал</p>
         <p class="portion-note" data-shchi-nutrition="1130496">Ккал, Б и Ж фарша — каталог/этикетка. У 0 — прежнее явно отмеченное допущение для этого товара, не значение этикетки.</p><div class="yield-audit">
@@ -508,6 +510,7 @@ thead th{background:var(--teal2);color:var(--ink)}
     </div>
   </div>
       </article><article class="shchi-option" data-shchi-option="beef_rice"><h4>Говядина · тефтели с рисом</h4><p><a href="https://edostavka.by/product/2184668" target="_blank" rel="noreferrer">Фарш говяжий</a> — 200 г; <a href="https://edostavka.by/product/1313536" target="_blank" rel="noreferrer">Рис Gusto круглозерный, шлифованный, 800 г</a> — 30 г сухого.</p>
+        <div class="variant-delta" data-shchi-delta><span>К базовому блюду · на 4 порции</span><b>≈+24 г готового · +96,0 ккал</b></div>
         <p class="shchi-option-result"><b>153,1 ккал</b> · ≈268,8 г на человека<br>Б 9,7 · Ж 8,2 · У 10,5</p>
         <p class="portion-note">Вся кастрюля: ≈1 075 г · 612,5 ккал<br>На 100 г расчётного веса: 57,0 ккал</p>
         <p class="portion-note" data-shchi-nutrition="2184668">Ккал, Б и Ж фарша — каталог/этикетка. У 0 — <a href="https://wayout.fitness/food/calories/farsh-govyazhij-myasnaya-derzhava-637885" target="_blank" rel="noreferrer">внешняя запись бренда</a>, не значение этикетки; точная упаковка не подтверждена.</p><div class="yield-audit">
@@ -524,6 +527,7 @@ thead th{background:var(--teal2);color:var(--ink)}
     </div>
   </div>
       </article><article class="shchi-option" data-shchi-option="turkey_rice"><h4>Индейка · тефтели с рисом</h4><p><a href="https://edostavka.by/product/1130496" target="_blank" rel="noreferrer">Фарш из филе индейки</a> — 200 г; <a href="https://edostavka.by/product/1313536" target="_blank" rel="noreferrer">Рис Gusto круглозерный, шлифованный, 800 г</a> — 30 г сухого.</p>
+        <div class="variant-delta" data-shchi-delta><span>К базовому блюду · на 4 порции</span><b>≈+51 г готового · +18,0 ккал</b></div>
         <p class="shchi-option-result"><b>133,6 ккал</b> · ≈275,5 г на человека<br>Б 11,7 · Ж 5,0 · У 10,5</p>
         <p class="portion-note">Вся кастрюля: ≈1 102 г · 534,5 ккал<br>На 100 г расчётного веса: 48,5 ккал</p>
         <p class="portion-note" data-shchi-nutrition="1130496">Ккал, Б и Ж фарша — каталог/этикетка. У 0 — прежнее явно отмеченное допущение для этого товара, не значение этикетки.</p><div class="yield-audit">
