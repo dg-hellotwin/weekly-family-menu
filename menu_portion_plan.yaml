@@ -1,0 +1,247 @@
+# План по исходным калориям без вычитания неизвестных потерь, не опубликованное меню.
+# Порции и ограничения: menu_portions.txt; полная проверка: recipe_calculation.json.
+schema_version: 1
+complete_week: true
+extras_complete: true
+batches:
+  shakshuka_mon: { recipe: shakshuka, variant: chickpea, cook_day: mon }
+  chicken_thigh_vegetables: { recipe: chicken_thigh_vegetables, cook_day: mon }
+  shchi_meatballs: { recipe: shchi_meatballs, cook_day: mon }
+  pollock_carrot_cheese: { recipe: pollock_carrot_cheese, cook_day: mon }
+  brown_rice: { recipe: brown_rice, cook_day: mon }
+  sausages_ciabatta_vegetables: { recipe: sausages_ciabatta_vegetables, cook_day: tue, scale: 1.028657757890787 }
+  chicken_liver_sour_cream: { recipe: chicken_liver_sour_cream, cook_day: tue }
+  boiled_buckwheat: { recipe: boiled_buckwheat, cook_day: tue }
+  lazy_cabbage_rolls: { recipe: lazy_cabbage_rolls, cook_day: tue }
+  quinoa_eggs_turkey: { recipe: quinoa_eggs_turkey, cook_day: wed }
+  fish_soup: { recipe: fish_soup, cook_day: wed, scale: 1.2363375287890288 }
+  seafood_soba_wok: { recipe: seafood_soba_wok, cook_day: wed, scale: 1.281190018029949 }
+  scramble_tomato_mozzarella: { recipe: scramble_tomato_mozzarella, cook_day: thu }
+  stuffed_eggplant: { recipe: stuffed_eggplant, cook_day: thu, scale: 1.1287916527282258 }
+  eggs_chickpeas_vegetables: { recipe: eggs_chickpeas_vegetables, cook_day: fri, scale: 1.163758200840681 }
+  grilled_pork_neck: { recipe: grilled_pork_neck, cook_day: fri, scale: 1.0409529257718926 }
+  grilled_potatoes: { recipe: grilled_potatoes, cook_day: fri, scale: 1.0422286967919774 }
+  grilled_vegetables_fri: { recipe: grilled_vegetables_fri, cook_day: fri, scale: 1.0409796007665233 }
+  oats_chicken_mushrooms: { recipe: oats_chicken_mushrooms, cook_day: sat, scale: 1.0210771600520683 }
+  lentil_porridge: { recipe: lentil_porridge, cook_day: sat, scale: 1.1445709701917783 }
+  grilled_ribs: { recipe: grilled_ribs, cook_day: sat, scale: 1.0303906567445251 }
+  grilled_vegetables_sat: { recipe: grilled_vegetables_sat, cook_day: sat, scale: 1.0313390096839812 }
+  savory_syrniki: { recipe: savory_syrniki, cook_day: sun }
+  yogurt_berries: { recipe: yogurt_berries, cook_day: sun }
+  bean_egg_turkey_salad: { recipe: bean_egg_turkey_salad, cook_day: sun }
+  baked_chicken_breast: { recipe: baked_chicken_breast, cook_day: sun, scale: 1.0725623845653396 }
+  roasted_pumpkin: { recipe: roasted_pumpkin, cook_day: sun, scale: 1.0707050827876035 }
+  boiled_bulgur: { recipe: boiled_bulgur, cook_day: sun, scale: 1.0650897288095331 }
+meals:
+  - day: mon
+    type: breakfast
+    complete: true
+    portions:
+      w:
+        - { batch: shakshuka_mon, components: { eggs: 0.5, sauce: 0.4075212531542607 } }
+      m:
+        - { batch: shakshuka_mon, components: { eggs: 0.5, sauce: 0.5290434072184692 } }
+  - day: mon
+    type: lunch
+    complete: true
+    portions:
+      w:
+        - { batch: chicken_thigh_vegetables, share: 0.44481710202774677 }
+      m:
+        - { batch: chicken_thigh_vegetables, share: 0.5130542873886591 }
+  - day: mon
+    type: dinner
+    complete: true
+    portions:
+      w:
+        - { batch: shchi_meatballs, share: 0.25 }
+        - { batch: pollock_carrot_cheese, share: 0.42705908700310313 }
+        - { batch: brown_rice, share: 0.4381088675759107 }
+      m:
+        - { batch: shchi_meatballs, share: 0.25 }
+        - { batch: pollock_carrot_cheese, share: 0.5237002221008998 }
+        - { batch: brown_rice, share: 0.5126182042468918 }
+  - day: tue
+    type: breakfast
+    complete: true
+    portions:
+      w:
+        - { batch: sausages_ciabatta_vegetables, share: 0.4643808207892676 }
+      m:
+        - { batch: sausages_ciabatta_vegetables, share: 0.5356191792107324 }
+  - day: tue
+    type: lunch
+    complete: true
+    portions:
+      w:
+        - { batch: chicken_liver_sour_cream, share: 0.3700673205093579 }
+        - { batch: boiled_buckwheat, share: 0.3700673205093579 }
+      m:
+        - { batch: chicken_liver_sour_cream, share: 0.42683751264112996 }
+        - { batch: boiled_buckwheat, share: 0.42683751264112996 }
+  - day: tue
+    type: dinner
+    complete: true
+    portions:
+      w:
+        - { batch: shchi_meatballs, share: 0.25 }
+        - { batch: lazy_cabbage_rolls, share: 0.2222222222222222 }
+      m:
+        - { batch: shchi_meatballs, share: 0.25 }
+        - { batch: lazy_cabbage_rolls, share: 0.2777777777777778 }
+  - day: wed
+    type: breakfast
+    complete: true
+    portions:
+      w:
+        - { batch: quinoa_eggs_turkey, share: 0.448541319368306 }
+      m:
+        - { batch: quinoa_eggs_turkey, share: 0.5173498184395806 }
+  - day: wed
+    type: lunch
+    complete: true
+    portions:
+      w:
+        - { batch: lazy_cabbage_rolls, share: 0.2222222222222222 }
+      m:
+        - { batch: lazy_cabbage_rolls, share: 0.2777777777777778 }
+  - day: wed
+    type: dinner
+    complete: true
+    portions:
+      w:
+        - { batch: fish_soup, share: 0.25719425121810907 }
+        - { batch: seafood_soba_wok, share: 0.22372081272233318 }
+      m:
+        - { batch: fish_soup, share: 0.26013021203469117 }
+        - { batch: seafood_soba_wok, share: 0.2707214714784956 }
+  - day: thu
+    type: breakfast
+    complete: true
+    portions:
+      w:
+        - { batch: scramble_tomato_mozzarella, components: { scramble: 0.3788449678982631, bread: 0.5 } }
+      m:
+        - { batch: scramble_tomato_mozzarella, components: { scramble: 0.4493442124286506, bread: 0.5 } }
+  - day: thu
+    type: lunch
+    complete: true
+    portions:
+      w:
+        - { batch: seafood_soba_wok, share: 0.23477130701916643 }
+      m:
+        - { batch: seafood_soba_wok, share: 0.2707864087800048 }
+  - day: thu
+    type: dinner
+    complete: true
+    portions:
+      w:
+        - { batch: fish_soup, share: 0.2403744118010755 }
+        - { batch: stuffed_eggplant, share: 0.22683218521430246 }
+      m:
+        - { batch: fish_soup, share: 0.2423011249461243 }
+        - { batch: stuffed_eggplant, share: 0.27362036473950363 }
+  - day: fri
+    type: breakfast
+    complete: true
+    portions:
+      w:
+        - { batch: eggs_chickpeas_vegetables, share: 0.4643808207892676 }
+      m:
+        - { batch: eggs_chickpeas_vegetables, share: 0.5356191792107324 }
+  - day: fri
+    type: lunch
+    complete: true
+    portions:
+      w:
+        - { batch: stuffed_eggplant, share: 0.2319802548756372 }
+      m:
+        - { batch: stuffed_eggplant, share: 0.26756719517055666 }
+  - day: fri
+    type: dinner
+    complete: true
+    portions:
+      w:
+        - { batch: grilled_pork_neck, share: 0.46039066485020047 }
+        - { batch: grilled_potatoes, share: 0.5042266468774459 }
+        - { batch: grilled_vegetables_fri, share: 0.46130832771209773 }
+      m:
+        - { batch: grilled_pork_neck, share: 0.5396093351497996 }
+        - { batch: grilled_potatoes, share: 0.49577335312255405 }
+        - { batch: grilled_vegetables_fri, share: 0.5386916722879023 }
+  - day: sat
+    type: breakfast
+    complete: true
+    portions:
+      w:
+        - { batch: oats_chicken_mushrooms, share: 0.4643808207892676 }
+      m:
+        - { batch: oats_chicken_mushrooms, share: 0.5356191792107324 }
+  - day: sat
+    type: lunch
+    complete: true
+    portions:
+      w:
+        - { batch: lentil_porridge, share: 0.4643808207892675 }
+      m:
+        - { batch: lentil_porridge, share: 0.5356191792107323 }
+  - day: sat
+    type: dinner
+    complete: true
+    portions:
+      w:
+        - { batch: grilled_ribs, share: 0.46309621361664954 }
+        - { batch: grilled_vegetables_sat, share: 0.47488888233191223 }
+      m:
+        - { batch: grilled_ribs, share: 0.5369037863833505 }
+        - { batch: grilled_vegetables_sat, share: 0.5251111176680879 }
+  - day: sun
+    type: breakfast
+    complete: true
+    portions:
+      w:
+        - { batch: savory_syrniki, share: 0.4311373853028501 }
+        - { batch: yogurt_berries, share: 0.4781203054961094 }
+      m:
+        - { batch: savory_syrniki, share: 0.5233117288470935 }
+        - { batch: yogurt_berries, share: 0.47648910047656406 }
+  - day: sun
+    type: lunch
+    complete: true
+    portions:
+      w:
+        - { batch: bean_egg_turkey_salad, share: 0.41947114791146384 }
+      m:
+        - { batch: bean_egg_turkey_salad, share: 0.4838201361655256 }
+  - day: sun
+    type: dinner
+    complete: true
+    portions:
+      w:
+        - { batch: baked_chicken_breast, share: 0.48624292395473345 }
+        - { batch: roasted_pumpkin, share: 0.4662514561278638 }
+        - { batch: boiled_bulgur, share: 0.4053853230001916 }
+      m:
+        - { batch: baked_chicken_breast, share: 0.5137570760452665 }
+        - { batch: roasted_pumpkin, share: 0.5337485438721361 }
+        - { batch: boiled_bulgur, share: 0.5946146769998084 }
+extras:
+  - { person: m, day: mon, product_id: "17355", grams: 8 }
+  - { person: m, day: tue, product_id: "17355", grams: 8 }
+  - { person: w, day: wed, product_id: "32400", grams: 15 }
+  - { person: m, day: wed, product_id: "17355", grams: 8 }
+  - { person: m, day: wed, product_id: "32400", grams: 15 }
+  - { person: m, day: thu, product_id: "17355", grams: 8 }
+  - { person: w, day: fri, product_id: WINE14, ml: 375 }
+  - { person: w, day: fri, product_id: COGNAC40, ml: 125 }
+  - { person: m, day: fri, product_id: "17355", grams: 8 }
+  - { person: m, day: fri, product_id: WINE14, ml: 375 }
+  - { person: m, day: fri, product_id: COGNAC40, ml: 125 }
+  - { person: w, day: sat, product_id: "32400", grams: 15 }
+  - { person: w, day: sat, product_id: WINE14, ml: 375 }
+  - { person: w, day: sat, product_id: COGNAC40, ml: 125 }
+  - { person: m, day: sat, product_id: "17355", grams: 4 }
+  - { person: m, day: sat, product_id: "32400", grams: 15 }
+  - { person: m, day: sat, product_id: WINE14, ml: 375 }
+  - { person: m, day: sat, product_id: COGNAC40, ml: 125 }
+  - { person: m, day: sun, product_id: "17355", grams: 4 }
